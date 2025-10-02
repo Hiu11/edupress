@@ -26,7 +26,8 @@ body {
 .course-list {
   display: flex;
   flex-direction: column; 
-  gap: 20px;              
+  gap: 20px;    
+           
 }
 
 .course-card {
@@ -35,6 +36,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
+  color: black; 
 }
 
 .course-card img {

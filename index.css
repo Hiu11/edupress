@@ -81,19 +81,46 @@ body {
 }
 .stat { font-weight: bold; }
 
-/* Feedback */
-.feedback { padding: 60px 40px; }
-.feedback-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.feedback-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  align-items: center; /* canh giữa theo chiều dọc */
 }
-.feedback-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
 }
+
+.feedback-form input {
+  width: 180px; /* nhỏ hơn để cân đối */
+}
+
+.feedback-form textarea {
+  flex: 1; /* textarea chiếm hết phần còn lại */
+  resize: none; /* không cho resize xấu layout */
+  height: 40px; /* cho nó bằng chiều cao input */
+}
+
+.feedback-form button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap; /* không bị xuống dòng */
+}
+
+.feedback-form button:hover {
+  background: #444;
+}
+
+
 
 /* Articles */
 .articles { padding: 60px 40px; }
