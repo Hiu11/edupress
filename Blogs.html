@@ -22,6 +22,7 @@
         }
 
         #registerBox {
+            position: relative;
             background: #fff;
             padding: 25px;
             border-radius: 10px;
@@ -29,6 +30,17 @@
             max-width: 400px;
             width: 100%;
         }
+
+        #closeModal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+
 
         #registerBox h2 {
             margin-bottom: 15px;
@@ -125,7 +137,7 @@
         <nav class="menu">
             <a href="index.html">Home</a>
             <a href="course-listing.html">Courses</a>
-            <a href="blog.html">Blog</a>
+            <a href="Blogs.html">Blogs</a>
             <a href="#">Features</a>
             <a href="#">Contact</a>
         </nav>
@@ -137,6 +149,7 @@
     <!-- Popup đăng ký -->
     <div id="registerModal">
         <div id="registerBox">
+            <span id="closeModal">&times;</span> <!-- nút X để tắt -->
             <h2>Đăng ký nhận tin tức</h2>
             <input type="text" id="name" placeholder="Nhập tên của bạn">
             <input type="email" id="email" placeholder="Nhập email của bạn">
@@ -145,7 +158,7 @@
     </div>
 
     <!-- Blog Content -->
-    <main id="blogContent">
+    <main id="blogContent" style="display:none;">
         <section class="highlight-news">
             <img src="blog-banner.jpg" alt="Banner">
             <h2>Tin tức nổi bật</h2>
@@ -193,23 +206,81 @@
     </footer>
 
     <script>
-        const modal = document.getElementById("registerModal");
-        const blogContent = document.getElementById("blogContent");
-        const registerBtn = document.getElementById("registerBtn");
+        // ==========================
+        // 1. LẤY CÁC PHẦN TỬ HTML
+        // ==========================
+        const modal = document.getElementById("registerModal");   // phần popup đăng ký (overlay màu xám + form đăng ký)
+        const blogContent = document.getElementById("blogContent"); // phần main blog (chứa tin tức hoặc thông báo)
+        const registerBtn = document.getElementById("registerBtn"); // nút "Đăng ký" trong popup
+        const closeModal = document.getElementById("closeModal");   // nút "X" để đóng popup
 
+        // ==========================
+        // 2. XỬ LÝ SỰ KIỆN BẤM "ĐĂNG KÝ"
+        // ==========================
         registerBtn.addEventListener("click", () => {
+            // Lấy giá trị từ 2 ô input: Tên + Email
+            // .trim() để loại bỏ khoảng trắng đầu/cuối
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
 
+            // Kiểm tra nếu cả tên và email đều đã nhập
             if (name && email) {
-                alert(" Đăng ký thành công, chào mừng " + name + "!");
+                // Ẩn popup đăng ký (người dùng đã đăng ký thành công)
                 modal.style.display = "none";
+
+                // Hiện toàn bộ nội dung blog
                 blogContent.style.display = "block";
             } else {
-                alert(" Vui lòng nhập đầy đủ tên và email.");
+                // Nếu còn thiếu thì hiện cảnh báo
+                alert("⚠️ Vui lòng nhập đầy đủ tên và email.");
             }
         });
+
+        // ==========================
+        // 3. XỬ LÝ SỰ KIỆN BẤM "X" (TỪ CHỐI ĐĂNG KÝ)
+        // ==========================
+        closeModal.addEventListener("click", () => {
+            // Ẩn popup đăng ký
+            modal.style.display = "none";
+
+            // Vẫn cho hiện main nhưng thay vì blog thật thì sẽ là thông báo
+            blogContent.style.display = "block";
+
+            // Thay toàn bộ nội dung trong blogContent bằng thông báo
+            blogContent.innerHTML = `
+      <div style="
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        height:60vh;
+        font-size:22px;
+        font-weight:bold;
+        gap:15px;
+        text-align:center;">
+        
+        <!-- Thông báo chưa đăng ký -->
+        <p>Bạn chưa đăng ký nhận tin</p>
+
+        <!-- Link cho phép mở lại popup đăng ký -->
+        <a href="#" id="openRegister" 
+           style="color:#007BFF;text-decoration:none;font-size:18px;">
+          => Đăng ký ngay
+        </a>
+      </div>
+    `;
+
+            // ==========================
+            // 4. GẮN SỰ KIỆN CHO LINK "ĐĂNG KÝ NGAY"
+            // ==========================
+            document.getElementById("openRegister").addEventListener("click", (e) => {
+                e.preventDefault();              // Ngăn không cho reload trang khi click vào link
+                modal.style.display = "flex";    // Hiện lại popup đăng ký
+                blogContent.style.display = "none"; // Ẩn phần main để chỉ thấy popup
+            });
+        });
     </script>
+
 
 </body>
 
