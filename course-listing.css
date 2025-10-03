@@ -1,4 +1,14 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { /* sửa */
+  height: 100%;              /* toàn trang chiếm 100% chiều cao */
+  display: flex;             /* dùng flexbox để chia layout */
+  flex-direction: column;    /* xếp theo cột: navbar → main → footer */
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -22,12 +32,12 @@ body {
   text-decoration: none;
 }
 
-/* course-listing */
-.course-list {
+/* course-listing (sửa tên selector cho khớp HTML) */
+.course-listing {
+  flex: 1; /* cho phần course-listing chiếm hết chiều cao còn lại, đẩy footer xuống đáy */
   display: flex;
   flex-direction: column; 
   gap: 20px;    
-           
 }
 
 .course-card {
@@ -41,7 +51,7 @@ body {
 
 .course-card img {
   width: 200px;   
-      padding: 10px;        
+  padding: 10px;        
 }
 
 .course-card .info {
@@ -50,11 +60,10 @@ body {
 
 /* Footer */
 .footer {
-  text-align: center;
+  /* bỏ position cũ, để flexbox tự đẩy footer xuống */
+  width: 100%;
   background: #111;
   color: #fff;
+  text-align: center;
   padding: 20px;
-  margin-top: 40px;
 }
-
-

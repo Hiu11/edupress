@@ -15,7 +15,7 @@
         <nav class="menu">
             <a href="index.html">Home</a>
             <a href="course-listing.html">Courses</a>
-            <a href="#">Pages</a>
+            <a href="Blogs.html">Blogs</a>
             <a href="#">Features</a>
             <a href="#">Contact</a>
         </nav>
@@ -151,41 +151,41 @@
     </footer>
 
     <script>
-  // Lấy ô input tìm kiếm theo id="searchInput"
-  // → Dùng để đọc từ khóa người dùng đang gõ.
-  const searchInput = document.getElementById("searchInput");
+        // Lấy ô input tìm kiếm theo id="searchInput"
+        // → Dùng để đọc từ khóa người dùng đang gõ.
+        const searchInput = document.getElementById("searchInput");
 
-  // Lấy TẤT CẢ các thẻ khóa học có class="course-card"
-  // querySelectorAll trả về một NodeList (giống mảng, có forEach)
-  const courseCards = document.querySelectorAll(".course-card");
+        // Lấy TẤT CẢ các thẻ khóa học có class="course-card"
+        // querySelectorAll trả về một NodeList (giống mảng, có forEach)
+        const courseCards = document.querySelectorAll(".course-card");
 
-  // Lắng nghe sự kiện người dùng gõ phím trong ô tìm kiếm
-  // 'keyup' = mỗi lần nhả phím ra sẽ chạy callback
-  // (Có thể dùng 'input' để bắt cả dán/chỉnh sửa nội dung – nhưng theo yêu cầu mình giữ 'keyup')
-  searchInput.addEventListener("keyup", () => {
-    // Lấy giá trị đang nhập và đưa về chữ thường
-    // → đảm bảo tìm kiếm không phân biệt hoa/thường
-    const keyword = searchInput.value.toLowerCase();
+        // Lắng nghe sự kiện người dùng gõ phím trong ô tìm kiếm
+        // 'keyup' = mỗi lần nhả phím ra sẽ chạy callback
+        // (Có thể dùng 'input' để bắt cả dán/chỉnh sửa nội dung – nhưng theo yêu cầu mình giữ 'keyup')
+        searchInput.addEventListener("keyup", () => {
+            // Lấy giá trị đang nhập và đưa về chữ thường
+            // → đảm bảo tìm kiếm không phân biệt hoa/thường
+            const keyword = searchInput.value.toLowerCase();
 
-    // Duyệt từng thẻ khóa học để kiểm tra có khớp từ khóa không
-    courseCards.forEach(card => {
-      // Tìm tiêu đề của khóa học trong card
-      // .textContent: lấy text bên trong phần tử
-      // .toLowerCase(): đồng bộ về chữ thường để so sánh
-      const title = card.querySelector(".course-title").textContent.toLowerCase();
+            // Duyệt từng thẻ khóa học để kiểm tra có khớp từ khóa không
+            courseCards.forEach(card => {
+                // Tìm tiêu đề của khóa học trong card
+                // .textContent: lấy text bên trong phần tử
+                // .toLowerCase(): đồng bộ về chữ thường để so sánh
+                const title = card.querySelector(".course-title").textContent.toLowerCase();
 
-      // Kiểm tra: tiêu đề có chứa từ khóa không?
-      if (title.includes(keyword)) {
-        // Nếu CÓ: hiển thị lại card
-        // Lưu ý dùng "flex" vì layout card ban đầu là flex (không dùng "block" kẻo vỡ layout)
-        card.style.display = "flex";
-      } else {
-        // Nếu KHÔNG: ẩn card đi
-        card.style.display = "none";
-      }
-    });
-  });
-</script>
+                // Kiểm tra: tiêu đề có chứa từ khóa không?
+                if (title.includes(keyword)) {
+                    // Nếu CÓ: hiển thị lại card
+                    // Lưu ý dùng "flex" vì layout card ban đầu là flex (không dùng "block" kẻo vỡ layout)
+                    card.style.display = "flex";
+                } else {
+                    // Nếu KHÔNG: ẩn card đi
+                    card.style.display = "none";
+                }
+            });
+        });
+    </script>
 
 
 
