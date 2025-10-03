@@ -45,7 +45,7 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   margin: 6px 0;
 }
 .course-section a {
-  color: #0073e6;
+  color: black;
   text-decoration: none;
 }
 .course-section a:hover {
@@ -64,15 +64,12 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 16px;
-  background: #0073e6;  /* màu tím giống theme */
+  background: #111;  /* màu tím giống theme */
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: background 0.3s;
-}
-.back-btn:hover {
-  background: #3d1db3;
+  
 }
 
 

@@ -40,7 +40,8 @@ body {
 }
 
 .course-card img {
-  width: 200px;           
+  width: 200px;   
+      padding: 10px;        
 }
 
 .course-card .info {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduPress - Home</title>
   <link rel="stylesheet" href="index.css">
- </head>
+</head>
 
 <body>
 
@@ -28,27 +28,24 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
-      <h1> Build Skills With Online Course</h1>
-      <p>Learn anywhere, antytime with our online platform</p>
-      <button class="btn">Start Learning</button>
-    </div>
-    <div class="hero-img">
-      <img src="images_hero.png" alt="Online Course">
-    </div>
+    <h1>Build Skills With Online Course</h1>
+    <p>Learn anywhere, anytime with our online platform</p>
+    <button class="btn">Start Learning</button>
+  </div>
   </section>
 
   <!-- Top Categories -->
   <section class="categories">
     <h2>Top Categories</h2>
     <div class="cat-grid">
-      <div class="cat-card">Art & Design</div>
-      <div class="cat-card">Comunication</div>
-      <div class="cat-card">Web Development</div>
-      <div class="cat-card">Photography</div>
-      <div class="cat-card">Marketing</div>
-      <div class="cat-card">Finance</div>
-      <div class="cat-card">Science</div>
-      <div class="cat-card">Music</div>
+      <div class="cat-card">Cơ sở lập trình</div>
+      <div class="cat-card">Lập trình hướng đối tượng</div>
+      <div class="cat-card">Phát triển Web</div>
+      <div class="cat-card">Phân tích thiết kế hệ thống</div>
+      <div class="cat-card">Quản lý dự án CNTT</div>
+      <div class="cat-card">Máy học</div>
+      <div class="cat-card">Thiết kế giao diện</div>
+      <div class="cat-card">QA & QC</div>
     </div>
   </section>
 
@@ -75,14 +72,13 @@
       <div class="course-card">
         <div class="course-img">
           <img src="course2.png" alt="Course image">
-          <span class="course-tag">Photography</span>
         </div>
         <div class="course-body">
-          <p class="course-author">by Determined-Poitras</p>
-          <h3 class="course-title">Create An LMS Website With LearnPress</h3>
+          <p class="course-author">by Nguyễn Mạnh Tuấn</p>
+          <h3 class="course-title">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</h3>
           <div class="course-meta">
-            <span> 2 Weeks</span>
-            <span>156 Students</span>
+            <span>2 Months</span>
+            <span>66 Students</span>
           </div>
         </div>
       </div>
@@ -91,7 +87,6 @@
       <div class="course-card">
         <div class="course-img">
           <img src="course3.png" alt="Course image">
-          <span class="course-tag">Photography</span>
         </div>
         <div class="course-body">
           <p class="course-author">by Determined-Poitras</p>
@@ -107,7 +102,6 @@
       <div class="course-card">
         <div class="course-img">
           <img src="course4.png" alt="Course image">
-          <span class="course-tag">Photography</span>
         </div>
         <div class="course-body">
           <p class="course-author">by Determined-Poitras</p>
@@ -137,23 +131,23 @@
 
   <!-- Feedback -->
   <section class="feedback">
-  <h2>Student Feedback</h2>
+    <h2>Student Feedback</h2>
 
-  <!-- Form nhập feedback -->
-  <div class="feedback-form">
-    <input type="text" id="courseName" placeholder="Tên môn học..." required>
-    <textarea id="feedbackText" placeholder="Nhập feedback..." required></textarea>
-    <button id="submitFeedback">Gửi Feedback</button>
-  </div>
+    <!-- Form nhập feedback -->
+    <div class="feedback-form">
+      <input type="text" id="courseName" placeholder="Tên môn học..." required>
+      <textarea id="feedbackText" placeholder="Nhập feedback..." required></textarea>
+      <button id="submitFeedback">Gửi Feedback</button>
+    </div>
 
-  <!-- Danh sách feedback hiển thị -->
-  <div class="feedback-grid" id="feedbackList">
-    <div class="feedback-card">"Great platform!" - John</div>
-    <div class="feedback-card">"Very useful." - Jane</div>
-    <div class="feedback-card">"Loved the UI." - Alex</div>
-    <div class="feedback-card">"Helped my career." - Sarah</div>
-  </div>
-</section>
+    <!-- Danh sách feedback hiển thị -->
+    <div class="feedback-grid" id="feedbackList">
+      <div class="feedback-card">"Great platform!" - John</div>
+      <div class="feedback-card">"Very useful." - Jane</div>
+      <div class="feedback-card">"Loved the UI." - Alex</div>
+      <div class="feedback-card">"Helped my career." - Sarah</div>
+    </div>
+  </section>
 
 
   <!-- Latest Articles -->
@@ -172,36 +166,36 @@
   </footer>
 
   <script>
-  // Lấy các phần tử form
-  const courseNameInput = document.getElementById("courseName");
-  const feedbackTextInput = document.getElementById("feedbackText");
-  const submitBtn = document.getElementById("submitFeedback");
-  const feedbackList = document.getElementById("feedbackList");
+    // Lấy các phần tử form
+    const courseNameInput = document.getElementById("courseName");
+    const feedbackTextInput = document.getElementById("feedbackText");
+    const submitBtn = document.getElementById("submitFeedback");
+    const feedbackList = document.getElementById("feedbackList");
 
-  // Bắt sự kiện click nút Gửi
-  submitBtn.addEventListener("click", () => {
-    const course = courseNameInput.value.trim();
-    const feedback = feedbackTextInput.value.trim();
+    // Bắt sự kiện click nút Gửi
+    submitBtn.addEventListener("click", () => {
+      const course = courseNameInput.value.trim();
+      const feedback = feedbackTextInput.value.trim();
 
-    // Kiểm tra rỗng
-    if (course === "" || feedback === "") {
-      alert("Vui lòng nhập tên môn học và feedback!");
-      return;
-    }
+      // Kiểm tra rỗng
+      if (course === "" || feedback === "") {
+        alert("Vui lòng nhập tên môn học và feedback!");
+        return;
+      }
 
-    // Tạo feedback mới
-    const newCard = document.createElement("div");
-    newCard.className = "feedback-card";
-    newCard.textContent = `"${feedback}" - ${course}`;
+      // Tạo feedback mới
+      const newCard = document.createElement("div");
+      newCard.className = "feedback-card";
+      newCard.textContent = `"${feedback}" - ${course}`;
 
-    // Thêm vào danh sách feedback
-    feedbackList.appendChild(newCard);
+      // Thêm vào danh sách feedback
+      feedbackList.appendChild(newCard);
 
-    // Reset input
-    courseNameInput.value = "";
-    feedbackTextInput.value = "";
-  });
-</script>
+      // Reset input
+      courseNameInput.value = "";
+      feedbackTextInput.value = "";
+    });
+  </script>
 
 
 </body>

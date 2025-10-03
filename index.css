@@ -22,18 +22,23 @@ body {
   text-decoration: none;
 }
 
-/* Hero */
 .hero {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* text nằm bên trái */
   align-items: center;
   padding: 60px 40px;
-  background: #f5f5f5;
+  background: url("images_hero.png") no-repeat center center;
+  background-size: cover;   /* ảnh phủ toàn vùng */
+  color: #111;              /* màu chữ */
+  height: 400px;            /* chỉnh cao */
+  border-radius: 10px;      /* nếu muốn bo góc */
 }
-.hero-text { max-width: 50%; }
-.hero h1 { font-size: 3rem; margin-bottom: 20px; }
-.hero p { margin-bottom: 20px; }
-.hero img { max-width: 500px; }
+.hero-text {
+  max-width: 50%;
+  background: rgba(255,255,255,0.7); /* nền mờ để chữ dễ đọc */
+  padding: 20px;
+  border-radius: 8px;
+}
 
 /* Categories */
 .categories { padding: 60px 40px; text-align: center; }
