@@ -68,24 +68,7 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Banner */
-.banner {
-  background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
-  text-align: center;
-  padding: 40px;
-  margin: 40px 0;
-  border-radius: 12px;
-}
-
-/* Stats */
-.stats {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px;
-  background: #fafafa;
-}
-.stat { font-weight: bold; }
-
+/* Feedback Form */
 .feedback-form {
   display: flex;
   gap: 10px;

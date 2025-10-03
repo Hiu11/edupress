@@ -43,8 +43,8 @@
         <section class="course-section">
             <h2>Bài Giảng - Tài Liệu Tham Khảo</h2>
             <ul>
-                <li>1. <a href="#">Book - AI.pdf</a> (Sách lý thuyết)</li>
-                <li>2. <a href="#">Practices - AI with Python.pdf</a> (Thực hành)</li>
+                <li>1. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Book - AI.pdf</a> (Sách lý thuyết)</li>
+                <li>2. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Practices - AI with Python.pdf</a> (Thực hành)</li>
                 <li>3. Tài liệu bổ sung 1</li>
                 <li>4. Tài liệu bổ sung 2</li>
                 <li>5. Tài liệu bổ sung 3</li>
@@ -73,6 +73,38 @@
             <h2>Chương 3. Giải Bài Toán Không Gian Trạng Thái</h2>
             <p>Nội dung chương...</p>
         </section>
+
+        <!-- Cập nhật tài liệu cá nhân -->
+<section class="course-section"> 
+    <!-- Tạo 1 section (khối) mới trong trang, có class course-section để ăn CSS chung -->
+    
+    <h2>Cập nhật tài liệu cá nhân</h2>
+    <!-- Tiêu đề của section -->
+
+    <label for="personalFile">Chọn tài liệu từ máy:</label><br><br>
+    <!-- Label (nhãn) mô tả input file, có thuộc tính for="personalFile" 
+         để liên kết trực tiếp với input có id="personalFile". 
+         Khi click vào label, trình duyệt sẽ mở luôn hộp thoại chọn file. -->
+
+    <input type="file" id="personalFile" name="personalFile"><br><br>
+    <!-- Input loại file: cho phép người dùng chọn file từ máy tính.
+         - type="file" → hiện nút "Chọn tệp".
+         - id="personalFile" để JS truy cập được phần tử này.
+         - name="personalFile" để nếu gửi form thì file sẽ có tên trường này. -->
+
+    <button id="uploadBtn" type="button">Gửi</button>
+    <!-- Nút bấm "Gửi":
+         - id="uploadBtn" để JS gắn sự kiện click.
+         - type="button" → để tránh hành vi mặc định submit form (không reload trang). -->
+
+    <!-- Nơi hiển thị tên file -->
+    <p id="fileName" class="note">Chưa chọn file nào</p>
+    <!-- Đoạn text hiển thị trạng thái:
+         - Mặc định là "Chưa chọn file nào".
+         - Sau khi chọn & bấm Gửi, JS sẽ thay đổi text thành tên file người dùng chọn. -->
+</section>
+
+
     </main>
 
     <!-- Footer -->
@@ -80,6 +112,44 @@
         <p>© 2025 EduPress. All rights reserved.</p>
     </footer>
 
-</body>
+    <!-- Script xử lý upload -->
+    <script>
+    // Lấy phần tử input file theo id="personalFile"
+    // → đây là nơi người dùng chọn file từ máy.
+    const fileInput = document.getElementById('personalFile');
 
+    // Lấy phần tử <p> có id="fileName"
+    // → dùng để hiển thị tên file đã chọn/gửi.
+    const fileName = document.getElementById('fileName');
+
+    // Lấy phần tử button có id="uploadBtn"
+    // → khi click vào nút này sẽ kích hoạt hàm xử lý.
+    const uploadBtn = document.getElementById('uploadBtn');
+
+    // Gắn sự kiện "click" vào nút uploadBtn
+    // Mỗi lần người dùng bấm nút "Gửi" thì hàm callback (arrow function) sẽ chạy
+    uploadBtn.addEventListener('click', () => {
+
+        // Lấy file đầu tiên (nếu có) trong input
+        // fileInput.files là danh sách các file được chọn (FileList)
+        // [0] → lấy file đầu tiên
+        const file = fileInput.files[0];
+
+        // Kiểm tra: người dùng có chọn file hay chưa?
+        if (file) {
+            // Nếu có file → cập nhật text trong <p id="fileName">
+            // file.name = tên file mà người dùng chọn
+            fileName.textContent = `Bạn vừa gửi: ${file.name}`;
+
+            // Thông báo cho người dùng (popup alert)
+            alert("File đã được gửi.");
+        } else {
+            // Nếu chưa chọn file → hiện cảnh báo
+            alert("Vui lòng chọn file trước khi gửi.");
+        }
+    });
+</script>
+
+
+</body>
 </html>
