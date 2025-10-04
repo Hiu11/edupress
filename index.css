@@ -16,11 +16,22 @@ body {
   color: #fff;
   padding: 15px 40px;
 }
-.navbar .menu a, .navbar .auth a {
+.navbar .auth a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
 }
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu a.active {
+  color: #ffd700;             
+  border-bottom: 2px solid #ffd700;  
+}
+
 
 .hero {
   display: flex;

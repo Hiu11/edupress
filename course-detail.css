@@ -10,11 +10,22 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   color: #fff;
   padding: 15px 40px;
 }
-.navbar .menu a, .navbar .auth a {
+.navbar .auth a {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
 }
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu a.active {
+  color: #ffd700;             
+  border-bottom: 2px solid #ffd700; 
+}
+
 
 /* Main content */
 .course-detail {
@@ -71,6 +82,28 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   font-size: 0.95rem;
   
 }
+
+/* Đảm bảo video luôn hiển thị chuẩn tỉ lệ và bo góc đẹp */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;  /* Tỉ lệ 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 /* Cập nhật tài liệu cá nhân */
 .course-section form {

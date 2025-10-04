@@ -14,11 +14,10 @@
   <header class="navbar">
     <div class="logo">Edu Press</div>
     <nav class="menu">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="course-listing.html">Courses</a>
       <a href="Blogs.html">Blogs</a>
-      <a href="#">Features</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="auth">
       <a href="#">Login</a> / <a href="#">Register</a>
@@ -153,36 +152,85 @@
   </footer>
 
   <script>
-    // Lấy các phần tử form
-    const courseNameInput = document.getElementById("courseName");
-    const feedbackTextInput = document.getElementById("feedbackText");
-    const submitBtn = document.getElementById("submitFeedback");
-    const feedbackList = document.getElementById("feedbackList");
+  // ================================================
+  //  1. KHAI BÁO BIẾN - LẤY CÁC PHẦN TỬ HTML
+  // ================================================
 
-    // Bắt sự kiện click nút Gửi
-    submitBtn.addEventListener("click", () => {
-      const course = courseNameInput.value.trim();
-      const feedback = feedbackTextInput.value.trim();
+  // Lấy ô input nhập tên môn học (ví dụ: “Trí tuệ nhân tạo”)
+  const courseNameInput = document.getElementById("courseName");
 
-      // Kiểm tra rỗng
-      if (course === "" || feedback === "") {
-        alert("Vui lòng nhập tên môn học và feedback!");
-        return;
-      }
+  // Lấy ô nhập nội dung feedback (textarea hoặc input text)
+  const feedbackTextInput = document.getElementById("feedbackText");
 
-      // Tạo feedback mới
-      const newCard = document.createElement("div");
-      newCard.className = "feedback-card";
-      newCard.textContent = `"${feedback}" - ${course}`;
+  // Lấy nút "Gửi" — khi người dùng bấm, sẽ kích hoạt sự kiện
+  const submitBtn = document.getElementById("submitFeedback");
 
-      // Thêm vào danh sách feedback
-      feedbackList.appendChild(newCard);
+  // Lấy khu vực (div) chứa danh sách feedback để hiển thị các phản hồi đã gửi
+  const feedbackList = document.getElementById("feedbackList");
 
-      // Reset input
-      courseNameInput.value = "";
-      feedbackTextInput.value = "";
-    });
-  </script>
+
+  // ================================================
+  //  2. LẮNG NGHE SỰ KIỆN CLICK TRÊN NÚT “GỬI”
+  // ================================================
+  // Khi người dùng bấm vào nút Gửi (submitBtn),
+  // hàm callback trong addEventListener sẽ chạy.
+  submitBtn.addEventListener("click", () => {
+
+    // Lấy giá trị người dùng nhập trong 2 ô input
+    // .trim() dùng để xóa khoảng trắng ở đầu và cuối chuỗi.
+    const course = courseNameInput.value.trim();   // Ví dụ: “Phân tích dữ liệu”
+    const feedback = feedbackTextInput.value.trim(); // Ví dụ: “Môn học rất thú vị!”
+
+
+    // ================================================
+    //  3. KIỂM TRA DỮ LIỆU - NGĂN GỬI NẾU RỖNG
+    // ================================================
+    // Nếu người dùng bỏ trống một trong hai ô → báo lỗi ngay
+    if (course === "" || feedback === "") {
+      // Hiển thị thông báo cảnh báo qua alert
+      alert("Vui lòng nhập tên môn học và feedback!");
+      // return để dừng luôn hàm, không chạy tiếp bên dưới
+      return;
+    }
+
+
+    // ================================================
+    // 🧩 4. TẠO MỘT PHẦN TỬ MỚI (feedback-card)
+    // ================================================
+    // Bước này là “render động”: tạo một thẻ HTML mới hoàn toàn bằng JS
+    const newCard = document.createElement("div"); // tạo <div></div>
+    
+    // Gán class cho div đó (để CSS có thể style)
+    // Ví dụ: .feedback-card { background:#f9f9f9; padding:10px; border-radius:6px; }
+    newCard.className = "feedback-card";
+
+    // Đặt nội dung text cho feedback-card
+    // textContent chỉ hiển thị text thuần (không render HTML)
+    // Template string: `"${feedback}" - ${course}`
+    // Ví dụ: `"Rất hay và dễ hiểu" - Trí tuệ nhân tạo`
+    newCard.textContent = `"${feedback}" - ${course}`;
+
+
+    // ================================================
+    //  5. THÊM THẺ FEEDBACK MỚI VÀO TRANG (DOM)
+    // ================================================
+    // Lúc này feedbackList là phần tử cha (nơi chứa tất cả feedback)
+    // appendChild() sẽ chèn newCard vào cuối feedbackList.
+    feedbackList.appendChild(newCard);
+
+
+    // ================================================
+    //  6. RESET FORM - DỌN DẸP SAU KHI GỬI
+    // ================================================
+    // Đặt lại giá trị 2 ô input về rỗng để user nhập mới
+    courseNameInput.value = "";
+    feedbackTextInput.value = "";
+
+    // (Tùy chọn) bạn có thể thêm thông báo nhẹ khi gửi thành công
+    // ví dụ: alert(" Feedback đã được gửi! Cảm ơn bạn!");
+  });
+</script>
+
 
 
 </body>

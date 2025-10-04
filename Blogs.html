@@ -117,6 +117,17 @@
             color: #555;
         }
 
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .menu a.active {
+            color: #ffd700;
+            border-bottom: 2px solid #ffd700;
+        }
+
         .footer {
             position: fixed;
             bottom: 0;
@@ -137,9 +148,8 @@
         <nav class="menu">
             <a href="index.html">Home</a>
             <a href="course-listing.html">Courses</a>
-            <a href="Blogs.html">Blogs</a>
-            <a href="#">Features</a>
-            <a href="#">Contact</a>
+            <a href="Blogs.html" class="active">Blogs</a>
+            <a href="contact.html">Contact</a>
         </nav>
         <div class="auth">
             <a href="login.html">Login</a> / <a href="register.html">Register</a>
