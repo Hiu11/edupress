@@ -5,140 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduPress Blog</title>
-    <link rel="stylesheet" href="course-detail.css">
-    <style>
-        /* Đăng ký popup */
-        #registerModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        #registerBox {
-            position: relative;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        #closeModal {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-        }
-
-
-        #registerBox h2 {
-            margin-bottom: 15px;
-        }
-
-        #registerBox input {
-            width: 90%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        #registerBox button {
-            margin-top: 12px;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            background: #111;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        #blogContent {
-            display: none;
-            /* Ẩn blog cho đến khi đăng ký xong */
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .highlight-news {
-            margin-bottom: 30px;
-        }
-
-        .highlight-news img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .highlight-news h2 {
-            margin: 15px 0;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .news-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .news-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .news-card .body {
-            padding: 15px;
-        }
-
-        .news-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .news-card p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .menu a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px;
-        }
-
-        .menu a.active {
-            color: #ffd700;
-            border-bottom: 2px solid #ffd700;
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            background: #111;
-            color: #fff;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="Blogs.css">
 </head>
 
 <body>
@@ -156,10 +23,9 @@
         </div>
     </header>
 
-    <!-- Popup đăng ký -->
     <div id="registerModal">
         <div id="registerBox">
-            <span id="closeModal">&times;</span> <!-- nút X để tắt -->
+            <span id="closeModal">&times;</span> 
             <h2>Đăng ký nhận tin tức</h2>
             <input type="text" id="name" placeholder="Nhập tên của bạn">
             <input type="email" id="email" placeholder="Nhập email của bạn">
@@ -167,7 +33,6 @@
         </div>
     </div>
 
-    <!-- Blog Content -->
     <main id="blogContent" style="display:none;">
         <section class="highlight-news">
             <img src="blog-banner.jpg" alt="Banner">
@@ -207,56 +72,122 @@
                     <p>Hành trình vì một tương lai bền vững cho thế hệ trẻ...</p>
                 </div>
             </div>
+
+            <div class="news-card">
+                <img src="news5.jpg" alt="">
+                <div class="body">
+                    <h3>Hỗ trợ sinh viên mùa bão lũ</h3>
+                    <p>EduPress triển khai chương trình hỗ trợ học viên trong các khu vực chịu ảnh hưởng...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news6.png" alt="">
+                <div class="body">
+                    <h3>Hội thảo AI 2025</h3>
+                    <p>Chuyên gia trong và ngoài nước bàn về tương lai trí tuệ nhân tạo và giáo dục...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news7.png" alt="">
+                <div class="body">
+                    <h3>ArtTech Fusion</h3>
+                    <p>Kết nối nghệ thuật và công nghệ trong kỷ nguyên mới...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news8.png" alt="">
+                <div class="body">
+                    <h3>ECOSTEP – Vì môi trường xanh</h3>
+                    <p>Hành trình vì một tương lai bền vững cho thế hệ trẻ...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news9.png" alt="">
+                <div class="body">
+                    <h3>Hỗ trợ sinh viên mùa bão lũ</h3>
+                    <p>EduPress triển khai chương trình hỗ trợ học viên trong các khu vực chịu ảnh hưởng...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news10.png" alt="">
+                <div class="body">
+                    <h3>Hội thảo AI 2025</h3>
+                    <p>Chuyên gia trong và ngoài nước bàn về tương lai trí tuệ nhân tạo và giáo dục...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news11.png" alt="">
+                <div class="body">
+                    <h3>ArtTech Fusion</h3>
+                    <p>Kết nối nghệ thuật và công nghệ trong kỷ nguyên mới...</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="news12.png" alt="">
+                <div class="body">
+                    <h3>ECOSTEP – Vì môi trường xanh</h3>
+                    <p>Hành trình vì một tương lai bền vững cho thế hệ trẻ...</p>
+                </div>
+            </div>  
         </section>
     </main>
 
-    <!-- Footer giữ nguyên -->
-    <footer class="footer">
-        <p>© 2025 EduPress. All rights reserved.</p>
-    </footer>
+  <footer class="footer">
+    <div class="footer-column">
+      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+      <p>Điện thoại: 0123 456 789</p>
+      <p>Email: contact@edupress.com</p>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>EduPress Tuyển Sinh</li>
+        <li>EduPress Future</li>
+        <li>EduPress Học Bổng</li>
+        <li>EduPress Đào Tạo</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>Về Chúng Tôi</li>
+        <li>Liên Hệ</li>
+        <li>Chính Sách Bảo Mật</li>
+        <li>Điều Khoản Dịch Vụ</li>
+      </ul>
+    </div>
+  </footer>
 
     <script>
-        // ==========================
-        // 1. LẤY CÁC PHẦN TỬ HTML
-        // ==========================
-        const modal = document.getElementById("registerModal");   // phần popup đăng ký (overlay màu xám + form đăng ký)
-        const blogContent = document.getElementById("blogContent"); // phần main blog (chứa tin tức hoặc thông báo)
-        const registerBtn = document.getElementById("registerBtn"); // nút "Đăng ký" trong popup
-        const closeModal = document.getElementById("closeModal");   // nút "X" để đóng popup
+        
+        const modal = document.getElementById("registerModal");  
+        const blogContent = document.getElementById("blogContent"); 
+        const registerBtn = document.getElementById("registerBtn"); 
+        const closeModal = document.getElementById("closeModal");  
 
-        // ==========================
-        // 2. XỬ LÝ SỰ KIỆN BẤM "ĐĂNG KÝ"
-        // ==========================
+       
         registerBtn.addEventListener("click", () => {
-            // Lấy giá trị từ 2 ô input: Tên + Email
-            // .trim() để loại bỏ khoảng trắng đầu/cuối
+          
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
 
-            // Kiểm tra nếu cả tên và email đều đã nhập
-            if (name && email) {
-                // Ẩn popup đăng ký (người dùng đã đăng ký thành công)
+           
+            if (name && email) {             
                 modal.style.display = "none";
-
-                // Hiện toàn bộ nội dung blog
                 blogContent.style.display = "block";
             } else {
-                // Nếu còn thiếu thì hiện cảnh báo
-                alert("⚠️ Vui lòng nhập đầy đủ tên và email.");
+                alert(" Vui lòng nhập đầy đủ tên và email.");
             }
         });
 
-        // ==========================
-        // 3. XỬ LÝ SỰ KIỆN BẤM "X" (TỪ CHỐI ĐĂNG KÝ)
-        // ==========================
         closeModal.addEventListener("click", () => {
-            // Ẩn popup đăng ký
             modal.style.display = "none";
-
-            // Vẫn cho hiện main nhưng thay vì blog thật thì sẽ là thông báo
             blogContent.style.display = "block";
-
-            // Thay toàn bộ nội dung trong blogContent bằng thông báo
             blogContent.innerHTML = `
       <div style="
         display:flex;
@@ -279,14 +210,10 @@
         </a>
       </div>
     `;
-
-            // ==========================
-            // 4. GẮN SỰ KIỆN CHO LINK "ĐĂNG KÝ NGAY"
-            // ==========================
             document.getElementById("openRegister").addEventListener("click", (e) => {
-                e.preventDefault();              // Ngăn không cho reload trang khi click vào link
-                modal.style.display = "flex";    // Hiện lại popup đăng ký
-                blogContent.style.display = "none"; // Ẩn phần main để chỉ thấy popup
+                e.preventDefault();              
+                modal.style.display = "flex";    
+                blogContent.style.display = "none"; 
             });
         });
     </script>

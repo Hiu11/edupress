@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên hệ - EduPress</title>
   <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">EduPress</div>
     <nav class="menu">
@@ -22,13 +23,11 @@
     </div>
   </header>
 
-  <!-- Hero Banner -->
   <section class="hero">
     <h1>Liên hệ với EduPress</h1>
     <p>Chúng tôi luôn sẵn sàng hỗ trợ và lắng nghe phản hồi từ bạn</p>
   </section>
 
-  <!-- Main Contact Section -->
   <main class="contact-container">
     <div class="contact-info">
       <h2>Thông tin liên hệ</h2>
@@ -50,63 +49,54 @@
     </div>
   </main>
 
-  <!-- Google Map -->
   <section class="map-section">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.716797726253!2d106.66141187582217!3d10.756440159635303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1dc9a1f007%3A0x1a2d9d1b26c623f1!2zVHLGsOG7nW5nIMSQ4buRYyBDaMOhbmggxJDhu5NuZyBLaW5oIFRow6BuaCBQaOG7kSBI4buTIFRo4buNIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1696754864075!5m2!1svi!2s" 
-      allowfullscreen=""
-      loading="lazy">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.716797726253!2d106.66141187582217!3d10.756440159635303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1dc9a1f007%3A0x1a2d9d1b26c623f1!2zVHLGsOG7nW5nIMSQ4buRYyBDaMOhbmggxJDhu5NuZyBLaW5oIFRow6BuaCBQaOG7kSBI4buTIFRo4buNIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1696754864075!5m2!1svi!2s"
+      allowfullscreen="" loading="lazy">
     </iframe>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 EduPress. All rights reserved.</p>
+    <div class="footer-column">
+      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+      <p>Điện thoại: 0123 456 789</p>
+      <p>Email: contact@edupress.com</p>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>EduPress Tuyển Sinh</li>
+        <li>EduPress Future</li>
+        <li>EduPress Học Bổng</li>
+        <li>EduPress Đào Tạo</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>Về Chúng Tôi</li>
+        <li>Liên Hệ</li>
+        <li>Chính Sách Bảo Mật</li>
+        <li>Điều Khoản Dịch Vụ</li>
+      </ul>
+    </div>
   </footer>
 
   <script>
-  // ==============================
-  // 1️ LẤY PHẦN TỬ CẦN DÙNG TRONG FORM
-  // ==============================
-
-  // Lấy phần tử form có id="contactForm"
-  const contactForm = document.getElementById("contactForm");
-
-  // Lấy phần tử hiển thị thông báo thành công
-  const successMsg = document.getElementById("successMsg");
-
-
-  // ==============================
-  // 2️ LẮNG NGHE SỰ KIỆN "submit" CỦA FORM
-  // ==============================
-  contactForm.addEventListener("submit", (e) => {
-
-    // Ngăn không cho form reload lại trang khi nhấn "Gửi"
-    e.preventDefault();
-
-    // ==============================
-    // 3️ LẤY DỮ LIỆU NGƯỜI DÙNG NHẬP
-    // ==============================
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    // ==============================
-    // 4️ KIỂM TRA DỮ LIỆU NHẬP
-    // ==============================
-    if (!name || !email || !message) {
-      alert("Vui lòng điền đầy đủ thông tin!");
-      return;
-    }
-
-    // ==============================
-    // 5️ HIỂN THỊ THÔNG BÁO GỬI THÀNH CÔNG
-    // ==============================
-    successMsg.textContent = "Cảm ơn bạn, tin nhắn đã được gửi thành công.";
-    contactForm.reset();
-  });
-</script>
-
+    const contactForm = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !email || !message) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+      }
+      successMsg.textContent = "Cảm ơn bạn, tin nhắn đã được gửi thành công.";
+      contactForm.reset();
+    });
+  </script>
 
 </body>
+
 </html>

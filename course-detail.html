@@ -10,7 +10,6 @@
 
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <div class="logo">EduPress</div>
         <nav class="menu">
@@ -24,57 +23,47 @@
         </div>
     </header>
 
-    <!-- Main content -->
     <main class="course-detail">
         <a href="course-listing.html" class="back-btn">← Quay về danh sách khóa học</a>
-
         <h1>Chi tiết khóa học: Trí tuệ nhân tạo</h1>
-
         <section class="course-section">
             <h2>Đề tài Đồ án / Diễn đàn</h2>
             <a href="https://docs.google.com/document/d/1-i0F2hTQIfEMNfjV7uYEoMDIonFkkHM7gRX3sDs-6pI/edit?usp=sharing"
                 target="_blank">
                 Link Google Doc
             </a>
-            <p class="status done">Đánh dấu đã xong ✅</p>
+
         </section>
 
         <section class="course-section">
             <h2>Bài Giảng - Tài Liệu Tham Khảo</h2>
             <ul>
-                <li>1. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Book - AI.pdf</a> (Sách lý
-                    thuyết)</li>
-                <li>2. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Practices - AI with
-                        Python.pdf</a> (Thực hành)</li>
+                <li>1. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Book - AI.pdf</a> (Sách lý thuyết)</li>
+                <li>2. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Practices - AI with Python.pdf</a> (Thực hành)</li>
                 <li>3. Tài liệu bổ sung 1</li>
                 <li>4. Tài liệu bổ sung 2</li>
                 <li>5. Tài liệu bổ sung 3</li>
             </ul>
-            <p class="status done">Đánh dấu đã xong ✅</p>
         </section>
 
         <section class="course-section">
             <h2>Điểm danh - Đánh giá</h2>
             <a href="#">Link điểm danh / đánh giá</a>
-            <p class="status done">Đánh dấu đã xong ✅</p>
         </section>
 
         <section class="course-section">
             <h2>Chương 1. Giới thiệu về AI</h2>
             <p><a href="#">Bài tập Python</a></p>
-            <p class="status done">Đánh dấu đã xong ✅</p>
         </section>
 
         <section class="course-section">
             <h2>Chương 2. Không Gian Trạng Thái</h2>
-            <!-- Video bài giảng AI -->
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/6CYp6Y0aq4Q?si=ZHIvTdd8jXmwd3Hm"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
-
             </div>
         </section>
 
@@ -83,77 +72,50 @@
             <p>Nội dung chương...</p>
         </section>
 
-        <!-- Cập nhật tài liệu cá nhân -->
         <section class="course-section">
-            <!-- Tạo 1 section (khối) mới trong trang, có class course-section để ăn CSS chung -->
-
             <h2>Cập nhật tài liệu cá nhân</h2>
-            <!-- Tiêu đề của section -->
-
             <label for="personalFile">Chọn tài liệu từ máy:</label><br><br>
-            <!-- Label (nhãn) mô tả input file, có thuộc tính for="personalFile" 
-         để liên kết trực tiếp với input có id="personalFile". 
-         Khi click vào label, trình duyệt sẽ mở luôn hộp thoại chọn file. -->
-
-            <input type="file" id="personalFile" name="personalFile"><br><br>
-            <!-- Input loại file: cho phép người dùng chọn file từ máy tính.
-         - type="file" → hiện nút "Chọn tệp".
-         - id="personalFile" để JS truy cập được phần tử này.
-         - name="personalFile" để nếu gửi form thì file sẽ có tên trường này. -->
-
+                    <input type="file" id="personalFile" name="personalFile"><br><br>
             <button id="uploadBtn" type="button">Gửi</button>
-            <!-- Nút bấm "Gửi":
-         - id="uploadBtn" để JS gắn sự kiện click.
-         - type="button" → để tránh hành vi mặc định submit form (không reload trang). -->
-
-            <!-- Nơi hiển thị tên file -->
             <p id="fileName" class="note">Chưa chọn file nào</p>
-            <!-- Đoạn text hiển thị trạng thái:
-         - Mặc định là "Chưa chọn file nào".
-         - Sau khi chọn & bấm Gửi, JS sẽ thay đổi text thành tên file người dùng chọn. -->
-        </section>
-
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 EduPress. All rights reserved.</p>
+        <div class="footer-column">
+            <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+            <p>Điện thoại: 0123 456 789</p>
+            <p>Email: contact@edupress.com</p>
+        </div>
+        <div class="footer-column">
+            <ul>
+                <li>EduPress Tuyển Sinh</li>
+                <li>EduPress Future</li>
+                <li>EduPress Học Bổng</li>
+                <li>EduPress Đào Tạo</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <ul>
+                <li>Về Chúng Tôi</li>
+                <li>Liên Hệ</li>
+                <li>Chính Sách Bảo Mật</li>
+                <li>Điều Khoản Dịch Vụ</li>
+            </ul>
+        </div>
     </footer>
 
-    <!-- Script xử lý upload -->
     <script>
-        // Lấy phần tử input file theo id="personalFile"
-        // → đây là nơi người dùng chọn file từ máy.
         const fileInput = document.getElementById('personalFile');
-
-        // Lấy phần tử <p> có id="fileName"
-        // → dùng để hiển thị tên file đã chọn/gửi.
         const fileName = document.getElementById('fileName');
-
-        // Lấy phần tử button có id="uploadBtn"
-        // → khi click vào nút này sẽ kích hoạt hàm xử lý.
         const uploadBtn = document.getElementById('uploadBtn');
-
-        // Gắn sự kiện "click" vào nút uploadBtn
-        // Mỗi lần người dùng bấm nút "Gửi" thì hàm callback (arrow function) sẽ chạy
         uploadBtn.addEventListener('click', () => {
-
-            // Lấy file đầu tiên (nếu có) trong input
-            // fileInput.files là danh sách các file được chọn (FileList)
-            // [0] → lấy file đầu tiên
             const file = fileInput.files[0];
-
-            // Kiểm tra: người dùng có chọn file hay chưa?
             if (file) {
-                // Nếu có file → cập nhật text trong <p id="fileName">
-                // file.name = tên file mà người dùng chọn
+                fileName.innerHTML = `Bạn vừa gửi: ${file.name}`;            
                 fileName.textContent = `Bạn vừa gửi: ${file.name}`;
-
-                // Thông báo cho người dùng (popup alert)
                 alert("File đã được gửi.");
-            } else {
-                // Nếu chưa chọn file → hiện cảnh báo
+            } else {       
                 alert("Vui lòng chọn file trước khi gửi.");
             }
         });

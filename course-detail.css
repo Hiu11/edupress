@@ -1,7 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
 
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -26,8 +25,6 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   border-bottom: 2px solid #ffd700; 
 }
 
-
-/* Main content */
 .course-detail {
   max-width: 900px;
   margin: 40px auto;
@@ -62,20 +59,13 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
 .course-section a:hover {
   text-decoration: underline;
 }
-.status {
-  margin-top: 8px;
-  font-size: 0.9rem;
-}
-.done {
-  color: black; 
-  font-weight: bold;
-}
+
 
 .back-btn {
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 16px;
-  background: #111;  /* màu tím giống theme */
+  background: #111; 
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
@@ -83,10 +73,9 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   
 }
 
-/* Đảm bảo video luôn hiển thị chuẩn tỉ lệ và bo góc đẹp */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%;  /* Tỉ lệ 16:9 */
+  padding-bottom: 56.25%;  
   height: 0;
   overflow: hidden;
   border-radius: 10px;
@@ -104,8 +93,6 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   border: none;
 }
 
-
-/* Cập nhật tài liệu cá nhân */
 .course-section form {
   margin-top: 15px;
   padding: 15px;
@@ -134,16 +121,15 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   padding: 10px 18px;
   border: none;
   border-radius: 6px;
-  background: #111;  /* cùng màu với navbar, back-btn */
+  background: #111;  
   color: #fff;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .course-section button:hover {
-  background: #333; /* hover nhạt hơn tí */
+  background: #333;
 }
 
 .course-section .note {
@@ -153,13 +139,21 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   font-style: italic;
 }
 
-
-
-/* Footer */
 .footer {
-  text-align: center;
-  background: #111;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  background-color: #111;
+  padding: 15px 80px;
   color: #fff;
-  padding: 20px;
-  margin-top: 40px;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
 }
+
+.footer-column p, .footer-column li {
+  font-size: 14px;
+  color: #dcdcdc;
+  list-style: none;
+  margin-bottom: 6px;
+}
+

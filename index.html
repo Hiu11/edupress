@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduPress - Home</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-yuFb3Q6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
-  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Edu Press</div>
     <nav class="menu">
@@ -24,15 +25,14 @@
     </div>
   </header>
 
-  <!-- Hero -->
+
   <section class="hero">
     <div class="hero-text">
-    <h1>Build Skills With Online Course</h1>
-    <p>Learn anywhere, anytime with our online platform</p>
-  </div>
+      <h1>Build Skills With Online Course</h1>
+      <p>Learn anywhere, anytime with our online platform</p>
+    </div>
   </section>
 
-  <!-- Top Categories -->
   <section class="categories">
     <h2>Top Categories</h2>
     <div class="cat-grid">
@@ -47,11 +47,9 @@
     </div>
   </section>
 
-  <!-- Featured Courses -->
   <section class="courses">
     <h2>Featured Courses</h2>
     <div class="course-grid">
-      <!-- course1 -->
       <div class="course-card">
         <div class="course-img">
           <img src="course1.png" alt="Course image">
@@ -66,7 +64,6 @@
         </div>
       </div>
 
-      <!-- course2 -->
       <div class="course-card">
         <div class="course-img">
           <img src="course2.png" alt="Course image">
@@ -81,7 +78,6 @@
         </div>
       </div>
 
-      <!-- course3 -->
       <div class="course-card">
         <div class="course-img">
           <img src="course3.png" alt="Course image">
@@ -96,7 +92,6 @@
         </div>
       </div>
 
-      <!-- course4 -->
       <div class="course-card">
         <div class="course-img">
           <img src="course4.png" alt="Course image">
@@ -113,125 +108,73 @@
     </div>
   </section>
 
-  
-
-  <!-- Feedback -->
   <section class="feedback">
-    <h2>Student Feedback</h2>
+    <h2>Student Feedbacks</h2>
+    <p>What Students Say About Academy LMS</p>
 
-    <!-- Form nhập feedback -->
-    <div class="feedback-form">
-      <input type="text" id="courseName" placeholder="Tên môn học..." required>
-      <textarea id="feedbackText" placeholder="Nhập feedback..." required></textarea>
-      <button id="submitFeedback">Gửi Feedback</button>
-    </div>
+    <div class="feedback-grid">
+      <div class="feedback-card">
+        <blockquote>
+          “I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...”
+        </blockquote>
+        <h4>Roe Smith</h4>
+        <span>Designer</span>
+      </div>
 
-    <!-- Danh sách feedback hiển thị -->
-    <div class="feedback-grid" id="feedbackList">
-      <div class="feedback-card">"Great platform!" - John</div>
-      <div class="feedback-card">"Very useful." - Jane</div>
-      <div class="feedback-card">"Loved the UI." - Alex</div>
-      <div class="feedback-card">"Helped my career." - Sarah</div>
+      <div class="feedback-card">
+        <blockquote>
+          “I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...”
+        </blockquote>
+        <h4>Roe Smith</h4>
+        <span>Designer</span>
+      </div>
+
+      <div class="feedback-card">
+        <blockquote>
+          “I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...”
+        </blockquote>
+        <h4>Roe Smith</h4>
+        <span>Designer</span>
+      </div>
+
+      <div class="feedback-card">
+        <blockquote>
+          “I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born...”
+        </blockquote>
+        <h4>Roe Smith</h4>
+        <span>Designer</span>
+      </div>
     </div>
   </section>
 
-
-  <!-- Latest Articles -->
-  <section class="articles">
-    <h2>Latest Articles</h2>
-    <div class="article-grid">
-      <div class="article-card">Blog 1</div>
-      <div class="article-card">Blog 2</div>
-      <div class="article-card">Blog 3</div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 EduPress. All rights reserved.</p>
+    <div class="footer-column">
+      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+      <p>Điện thoại: 0123 456 789</p>
+      <p>Email: contact@edupress.com</p>
+      <div class="footer-social">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>EduPress Tuyển Sinh</li>
+        <li>EduPress Future</li>
+        <li>EduPress Học Bổng</li>
+        <li>EduPress Đào Tạo</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>Về Chúng Tôi</li>
+        <li>Liên Hệ</li>
+        <li>Chính Sách Bảo Mật</li>
+        <li>Điều Khoản Dịch Vụ</li>
+      </ul>
+    </div>
   </footer>
-
-  <script>
-  // ================================================
-  //  1. KHAI BÁO BIẾN - LẤY CÁC PHẦN TỬ HTML
-  // ================================================
-
-  // Lấy ô input nhập tên môn học (ví dụ: “Trí tuệ nhân tạo”)
-  const courseNameInput = document.getElementById("courseName");
-
-  // Lấy ô nhập nội dung feedback (textarea hoặc input text)
-  const feedbackTextInput = document.getElementById("feedbackText");
-
-  // Lấy nút "Gửi" — khi người dùng bấm, sẽ kích hoạt sự kiện
-  const submitBtn = document.getElementById("submitFeedback");
-
-  // Lấy khu vực (div) chứa danh sách feedback để hiển thị các phản hồi đã gửi
-  const feedbackList = document.getElementById("feedbackList");
-
-
-  // ================================================
-  //  2. LẮNG NGHE SỰ KIỆN CLICK TRÊN NÚT “GỬI”
-  // ================================================
-  // Khi người dùng bấm vào nút Gửi (submitBtn),
-  // hàm callback trong addEventListener sẽ chạy.
-  submitBtn.addEventListener("click", () => {
-
-    // Lấy giá trị người dùng nhập trong 2 ô input
-    // .trim() dùng để xóa khoảng trắng ở đầu và cuối chuỗi.
-    const course = courseNameInput.value.trim();   // Ví dụ: “Phân tích dữ liệu”
-    const feedback = feedbackTextInput.value.trim(); // Ví dụ: “Môn học rất thú vị!”
-
-
-    // ================================================
-    //  3. KIỂM TRA DỮ LIỆU - NGĂN GỬI NẾU RỖNG
-    // ================================================
-    // Nếu người dùng bỏ trống một trong hai ô → báo lỗi ngay
-    if (course === "" || feedback === "") {
-      // Hiển thị thông báo cảnh báo qua alert
-      alert("Vui lòng nhập tên môn học và feedback!");
-      // return để dừng luôn hàm, không chạy tiếp bên dưới
-      return;
-    }
-
-
-    // ================================================
-    // 🧩 4. TẠO MỘT PHẦN TỬ MỚI (feedback-card)
-    // ================================================
-    // Bước này là “render động”: tạo một thẻ HTML mới hoàn toàn bằng JS
-    const newCard = document.createElement("div"); // tạo <div></div>
-    
-    // Gán class cho div đó (để CSS có thể style)
-    // Ví dụ: .feedback-card { background:#f9f9f9; padding:10px; border-radius:6px; }
-    newCard.className = "feedback-card";
-
-    // Đặt nội dung text cho feedback-card
-    // textContent chỉ hiển thị text thuần (không render HTML)
-    // Template string: `"${feedback}" - ${course}`
-    // Ví dụ: `"Rất hay và dễ hiểu" - Trí tuệ nhân tạo`
-    newCard.textContent = `"${feedback}" - ${course}`;
-
-
-    // ================================================
-    //  5. THÊM THẺ FEEDBACK MỚI VÀO TRANG (DOM)
-    // ================================================
-    // Lúc này feedbackList là phần tử cha (nơi chứa tất cả feedback)
-    // appendChild() sẽ chèn newCard vào cuối feedbackList.
-    feedbackList.appendChild(newCard);
-
-
-    // ================================================
-    //  6. RESET FORM - DỌN DẸP SAU KHI GỬI
-    // ================================================
-    // Đặt lại giá trị 2 ô input về rỗng để user nhập mới
-    courseNameInput.value = "";
-    feedbackTextInput.value = "";
-
-    // (Tùy chọn) bạn có thể thêm thông báo nhẹ khi gửi thành công
-    // ví dụ: alert(" Feedback đã được gửi! Cảm ơn bạn!");
-  });
-</script>
-
-
 
 </body>
 
