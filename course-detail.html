@@ -19,7 +19,9 @@
             <a href="contact.html">Contact</a>
         </nav>
         <div class="auth">
-            <a href="login.html">Login</a> / <a href="register.html">Register</a>
+            <a href="#">Login</a>
+            <span>/</span>
+            <a href="#">Register</a>
         </div>
     </header>
 
@@ -38,8 +40,10 @@
         <section class="course-section">
             <h2>Bài Giảng - Tài Liệu Tham Khảo</h2>
             <ul>
-                <li>1. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Book - AI.pdf</a> (Sách lý thuyết)</li>
-                <li>2. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Practices - AI with Python.pdf</a> (Thực hành)</li>
+                <li>1. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Book - AI.pdf</a> (Sách lý
+                    thuyết)</li>
+                <li>2. <a href="https://1drv.ms/u/s!AklC4nc0oOcTt6kmEiu5lGhqZSu0fw?e=yk7fC3">Practices - AI with
+                        Python.pdf</a> (Thực hành)</li>
                 <li>3. Tài liệu bổ sung 1</li>
                 <li>4. Tài liệu bổ sung 2</li>
                 <li>5. Tài liệu bổ sung 3</li>
@@ -75,7 +79,7 @@
         <section class="course-section">
             <h2>Cập nhật tài liệu cá nhân</h2>
             <label for="personalFile">Chọn tài liệu từ máy:</label><br><br>
-                    <input type="file" id="personalFile" name="personalFile"><br><br>
+            <input type="file" id="personalFile" name="personalFile"><br><br>
             <button id="uploadBtn" type="button">Gửi</button>
             <p id="fileName" class="note">Chưa chọn file nào</p>
 
@@ -112,10 +116,10 @@
         uploadBtn.addEventListener('click', () => {
             const file = fileInput.files[0];
             if (file) {
-                fileName.innerHTML = `Bạn vừa gửi: ${file.name}`;            
+                fileName.innerHTML = `Bạn vừa gửi: ${file.name}`;
                 fileName.textContent = `Bạn vừa gửi: ${file.name}`;
                 alert("File đã được gửi.");
-            } else {       
+            } else {
                 alert("Vui lòng chọn file trước khi gửi.");
             }
         });

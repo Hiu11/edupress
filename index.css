@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
+  background: #005f69;
   color: #fff;
   padding: 15px 40px;
 }
@@ -34,8 +34,8 @@ body {
 }
 
 .menu a.active {
-  color: #ffd700;
-  border-bottom: 2px solid #ffd700;
+  color: #F17034;
+  border-bottom: 2px solid #F17034;
 }
 
 .hero {
@@ -74,7 +74,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: #0b7e55;
+  color: #005f69;
     font-family: cursive;
 }
 .cat-card:hover {
@@ -181,7 +181,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  background-color: #111;
+  background-color: #005f69;
   padding: 15px 80px;
   color: #fff;
   line-height: 1.6;
@@ -196,5 +196,112 @@ body {
   margin-bottom: 6px;
 }
 
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+  }
 
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 40px 20px;
+    background-position: center;
+  }
+
+  .cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .feedback-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .auth {
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .menu a.active::after {
+    bottom: -3px;
+  }
+}
+
+  .hero {
+    flex-direction: column;
+    padding: 20px 10px;
+    text-align: center;
+    background-position: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .cat-grid,
+  .course-grid,
+  .feedback-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .course-card,
+  .cat-card,
+  .feedback-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    text-align: center;
+  }
+}
 

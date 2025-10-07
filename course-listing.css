@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
+  background: #005f69;
   color: #fff;
   padding: 15px 40px;
 }
@@ -40,8 +40,8 @@ body {
 }
 
 .menu a.active {
-  color: #ffd700;
-  border-bottom: 2px solid #ffd700;
+  color: #F17034;
+  border-bottom: 2px solid #F17034;
 }
 
 .course-listing {
@@ -61,6 +61,8 @@ body {
   overflow: hidden;
   color: black;
   margin: 20px 70px 10px 0px;
+    text-decoration: none;
+
 }
 
 .course-card:hover {
@@ -82,7 +84,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  background-color: #111;
+  background-color: #005f69;
   padding: 15px 80px;
   color: #fff;
   line-height: 1.6;
@@ -95,4 +97,103 @@ body {
   color: #dcdcdc;
   list-style: none;
   margin-bottom: 6px;
+}
+
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 30px;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .course-listing {
+    padding-left: 200px;
+    padding-right:200px;
+    padding-bottom: 200px;
+  }
+
+  .course-card {
+    margin: 10px 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .course-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .auth {
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .menu a.active::after {
+    bottom: -3px;
+  }
+}
+
+  .course-listing {
+    padding: 20px;
+  }
+
+  .course-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .course-card img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 25px 20px;
+    text-align: center;
+  }
 }
