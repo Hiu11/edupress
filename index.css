@@ -10,26 +10,19 @@ body {
   color: #333;
   background: #fff;
   overflow-x: hidden;
-  width:100%;
 }
 
 .navbar {
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #005f69;
-  color: #fff;
   padding: 0 40px;
-  height: 80px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #005f69;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
 }
-
-body { padding-top: 80px; }
 
 .logo img {
   height: 55px;
@@ -41,6 +34,7 @@ body { padding-top: 80px; }
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .menu {
@@ -50,11 +44,11 @@ body { padding-top: 80px; }
 }
 
 .menu a {
+  font-size: 16px;
   color: #fff;
   text-decoration: none;
-  padding: 10px 0;
-  font-size: 16px;
-  transition: 0.3s ease;
+  padding: 8px 0;
+  transition: color 0.3s ease;
 }
 
 .menu a:hover {
@@ -75,6 +69,10 @@ body { padding-top: 80px; }
 .auth a {
   color: #fff;
   text-decoration: none;
+}
+
+.auth span {
+  color: #fff;
 }
 
 .hero {
@@ -235,6 +233,9 @@ body { padding-top: 80px; }
 }
 
 @media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+  }
   .hero {
     flex-direction: column;
     text-align: center;
@@ -248,10 +249,22 @@ body { padding-top: 80px; }
   }
 
   .course-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+   grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+  }
+.course-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
   }
 
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
   .feedback-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 0 20px;
@@ -267,14 +280,7 @@ body { padding-top: 80px; }
   html, body {
     overflow-x: hidden;
   }
-
-  body {
-    padding-top: 100px; /* đẩy xa hơn chút nếu navbar cao hơn khi stack */
-  }
-
-  .hero {
-    margin-top: 0; /* tránh double spacing */
-  }
+  
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -307,11 +313,34 @@ body { padding-top: 80px; }
   }
 
   .cat-grid,
-  .course-grid,
   .feedback-grid {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 10px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .course-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .courses {
+    padding: 20px;
   }
 
   .footer {
