@@ -4,14 +4,10 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
@@ -24,19 +20,46 @@ body {
   align-items: center;
   background: #005f69;
   color: #fff;
-  padding: 15px 40px;
+  padding: 0 40px;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.navbar .auth a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
+body { padding-top: 80px; }
+
+.logo img {
+  height: 55px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 .menu a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.menu a:hover {
+  color: #F17034;
 }
 
 .menu a.active {
@@ -44,31 +67,41 @@ body {
   border-bottom: 2px solid #F17034;
 }
 
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.auth a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .course-listing {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-left: 50px;
-  padding-bottom: 400px;
+  padding: 40px 80px 200px 80px;
 }
 
 .course-card {
   display: flex;
+  align-items: center;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   color: black;
-  margin: 20px 70px 10px 0px;
-    text-decoration: none;
-
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
 .course-card:hover {
-  transition: transform 0.4s ease;
-  transform: translateY(-10px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
 .course-card img {
@@ -106,55 +139,10 @@ body {
 
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 30px;
-  }
-
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .course-listing {
-    padding-left: 200px;
-    padding-right:200px;
-    padding-bottom: 200px;
-  }
-
-  .course-card {
-    margin: 10px 0;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-  }
-
-  .course-card img {
-    width: 100%;
-    max-width: 300px;
+    gap: 10px;
     height: auto;
-  }
-
-  .footer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden;
-  }
-
-  @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
     padding: 20px 0;
-    text-align: center;
   }
 
   .menu {
@@ -168,10 +156,50 @@ body {
     font-size: 15px;
   }
 
-  .menu a.active::after {
-    bottom: -3px;
+  .course-listing {
+    padding: 20px 40px 120px 40px;
+  }
+
+  .course-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .course-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px 40px;
   }
 }
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .auth {
+    justify-content: center;
+    font-size: 15px;
+  }
 
   .course-listing {
     padding: 20px;
@@ -181,7 +209,6 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 10px 0;
   }
 
   .course-card img {

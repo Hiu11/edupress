@@ -7,24 +7,63 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   align-items: center;
   background: #005f69;
   color: #fff;
-  padding: 15px 40px;
+  padding: 0 40px;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.navbar .auth a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
+
+body { padding-top: 80px; }
+
+.logo img {
+  height: 55px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
 .menu a {
   color: #fff;
   text-decoration: none;
-  padding: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.menu a:hover {
+  color: #F17034;
 }
 
 .menu a.active {
-  color: #F17034;             
-  border-bottom: 2px solid #F17034; 
+  color: #F17034;
+  border-bottom: 2px solid #F17034;
 }
 
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.auth a {
+  color: #fff;
+  text-decoration: none;
+}
 .course-detail {
   max-width: 900px;
   margin: 40px auto;
@@ -60,15 +99,17 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   text-decoration: underline;
 }
 
+
 .back-btn {
   display: inline-block;
   margin-bottom: 20px;
   padding: 8px 16px;
-  background: #F17034; 
+  background: #005f69; 
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
   font-size: 0.95rem;
+  
 }
 
 .video-container {
@@ -119,7 +160,7 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   padding: 10px 18px;
   border: none;
   border-radius: 6px;
-  background: #F17034;  
+  background: #005f69;  
   color: #fff;
   font-size: 15px;
   font-weight: 500;
@@ -127,7 +168,7 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
 }
 
 .course-section button:hover {
-  background: #f39a42;
+  background: #F17034;
 }
 
 .course-section .note {
@@ -154,7 +195,6 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   list-style: none;
   margin-bottom: 6px;
 }
-
 @media (max-width: 1024px) {
   html, body {
     overflow-x: hidden;
@@ -216,40 +256,7 @@ body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
   }
 }
 
-  .course-detail {
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 15px;
-  }
-
-  .course-detail h1 {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  .course-section h2 {
-    font-size: 1.1rem;
-  }
-
-  .video-container {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-  }
-
-  .back-btn {
-    display: block;
-    width: fit-content;
-    margin: 0 auto 15px auto;
-    font-size: 0.9rem;
-  }
-
-  .footer {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 25px 20px;
-    text-align: center;
-  }
+  
 
 
 

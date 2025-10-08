@@ -11,7 +11,9 @@
 <body>
 
     <header class="navbar">
-        <div class="logo">EduPress</div>
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="EduPress logo">
+        </a>
         <nav class="menu">
             <a href="index.html">Home</a>
             <a href="course-listing.html">Courses</a>
@@ -27,7 +29,7 @@
 
     <div id="registerModal">
         <div id="registerBox">
-            <span id="closeModal">&times;</span> 
+            <span id="closeModal">&times;</span>
             <h2>Đăng ký nhận tin tức</h2>
             <input type="text" id="name" placeholder="Nhập tên của bạn">
             <input type="email" id="email" placeholder="Nhập email của bạn">
@@ -137,56 +139,49 @@
                     <h3>ECOSTEP – Vì môi trường xanh</h3>
                     <p>Hành trình vì một tương lai bền vững cho thế hệ trẻ...</p>
                 </div>
-            </div>  
+            </div>
         </section>
     </main>
 
-  <footer class="footer">
-    <div class="footer-column">
-      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
-      <p>Điện thoại: 0123 456 789</p>
-      <p>Email: contact@edupress.com</p>
-    </div>
-    <div class="footer-column">
-      <ul>
-        <li>EduPress Tuyển Sinh</li>
-        <li>EduPress Future</li>
-        <li>EduPress Học Bổng</li>
-        <li>EduPress Đào Tạo</li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <ul>
-        <li>Về Chúng Tôi</li>
-        <li>Liên Hệ</li>
-        <li>Chính Sách Bảo Mật</li>
-        <li>Điều Khoản Dịch Vụ</li>
-      </ul>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="footer-column">
+            <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+            <p>Điện thoại: 0123 456 789</p>
+            <p>Email: contact@edupress.com</p>
+        </div>
+        <div class="footer-column">
+            <ul>
+                <li>EduPress Tuyển Sinh</li>
+                <li>EduPress Future</li>
+                <li>EduPress Học Bổng</li>
+                <li>EduPress Đào Tạo</li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <ul>
+                <li>Về Chúng Tôi</li>
+                <li>Liên Hệ</li>
+                <li>Chính Sách Bảo Mật</li>
+                <li>Điều Khoản Dịch Vụ</li>
+            </ul>
+        </div>
+    </footer>
 
     <script>
-        
-        const modal = document.getElementById("registerModal");  
-        const blogContent = document.getElementById("blogContent"); 
-        const registerBtn = document.getElementById("registerBtn"); 
-        const closeModal = document.getElementById("closeModal");  
-
-       
+        const modal = document.getElementById("registerModal");
+        const blogContent = document.getElementById("blogContent");
+        const registerBtn = document.getElementById("registerBtn");
+        const closeModal = document.getElementById("closeModal");
         registerBtn.addEventListener("click", () => {
-          
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
-
-           
-            if (name && email) {             
+            if (name && email) {
                 modal.style.display = "none";
                 blogContent.style.display = "block";
             } else {
                 alert(" Vui lòng nhập đầy đủ tên và email.");
             }
         });
-
         closeModal.addEventListener("click", () => {
             modal.style.display = "none";
             blogContent.style.display = "block";
@@ -201,11 +196,7 @@
         font-weight:bold;
         gap:15px;
         text-align:center;">
-        
-        <!-- Thông báo chưa đăng ký -->
         <p>Bạn chưa đăng ký nhận tin</p>
-
-        <!-- Link cho phép mở lại popup đăng ký -->
         <a href="#" id="openRegister" 
            style="color:#007BFF;text-decoration:none;font-size:18px;">
           => Đăng ký ngay
@@ -213,9 +204,9 @@
       </div>
     `;
             document.getElementById("openRegister").addEventListener("click", (e) => {
-                e.preventDefault();              
-                modal.style.display = "flex";    
-                blogContent.style.display = "none"; 
+                e.preventDefault();
+                modal.style.display = "flex";
+                blogContent.style.display = "none";
             });
         });
     </script>
