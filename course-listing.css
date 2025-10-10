@@ -27,6 +27,7 @@
 .course-card img {
   width: 200px;
   padding: 10px;
+  border-radius: 15px;
 }
 
 .course-card .info {
