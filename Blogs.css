@@ -38,7 +38,7 @@
 #registerBox input {
   width: 90%;
   padding: 10px;
-  margin: 8px 0;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -55,6 +55,7 @@
 
 #registerBox button:hover {
   background: #F17034;
+  transition: 0.3s
 }
 
 #blogContent {
@@ -62,7 +63,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 20px;
-  box-sizing: border-box;
 }
 
 .highlight-news {
@@ -89,13 +89,13 @@
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: 0.4s ease;
 }
 
 .news-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .news-card img {
@@ -118,7 +118,8 @@
   color: #555;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -145,19 +146,17 @@ main {
 
   .news-card img {
     height: 200px;
-  }  
+  }
 }
 
 @media (max-width: 768px) {
-  
+
   #blogContent {
-    padding: 0 10px 150px 10px;
+    padding: 70px 10px 150px 10px;
   }
 
   .news-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  } 
+  }
 }
-
-
