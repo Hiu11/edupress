@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - EduPress</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-visual"></div>
+        <div class="auth-form-container">
+            <div class="auth-form-box">
+                <div class="auth-logo">
+                    <img src="logo.png" alt="EduPress Logo">
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <h2>Chào mừng trở lại!</h2>
+                    <p>Đăng nhập vào tài khoản của bạn</p>
+
+                    <div class="input-group">
+                        <label for="email">Tài khoản Email</label>
+                        <input type="email" id="email" placeholder="Nhập email của bạn" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" placeholder="Nhập mật khẩu của bạn" required>
+                    </div>
+                    
+
+                    <div id="errorMessage" class="error-message"></div>
+
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Nhớ mật khẩu</label>
+                    </div>
+                        <a href="forgot_password.html" class="forgot-password">Quên mật khẩu?</a>
+                    </div>
+
+
+
+                    <button type="submit" class="auth-btn">Đăng Nhập</button>
+
+
+                    <div class="switch-form-link">
+                        <p>Bạn chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
