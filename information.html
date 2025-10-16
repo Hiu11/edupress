@@ -1,185 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduPress - Home</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="auth.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-yuFb3Q6..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản - EduPress</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="information.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
 
-  <header class="navbar">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="EduPress logo">
-    </a>
-    <nav class="menu">
-      <a href="index.html" class="active">Trang chủ</a>
-      <a href="course-listing.html">Khóa học</a>
-      <a href="Blogs.html">Tin tức</a>
-      <a href="contact.html">Liên hệ</a>
-    </nav>
-    <div class="auth">
-      <a href="login.html">Đăng nhập</a>
-      <span>/</span>
-      <a href="register.html">Đăng kí</a>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Phát triển kỹ năng cùng EduPress</h1>
-      <p>Học mọi lúc, mọi nơi với nền tảng trực tuyến của chúng tôi</p>
-    </div>
-  </section>
-
-  <section class="categories">
-    <h2>Khóa học được quan tâm nhất</h2>
-    <div class="cat-grid">
-      <div class="cat-card">Cơ sở lập trình</div>
-      <div class="cat-card">Lập trình hướng đối tượng</div>
-      <div class="cat-card">Phát triển Web</div>
-      <div class="cat-card">Phân tích thiết kế hệ thống</div>
-      <div class="cat-card">Quản lý dự án CNTT</div>
-      <div class="cat-card">Máy học</div>
-      <div class="cat-card">Thiết kế giao diện</div>
-      <div class="cat-card">QA & QC</div>
-    </div>
-  </section>
-
-  <section class="courses">
-    <h2>Khóa học đề xuất</h2>
-    <div class="course-grid">
-      <a href="course-detail.html" class="course-card">
-        <div class="course-img">
-          <img src="course1.png" alt="Course image">
+    <header class="navbar">
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="EduPress logo">
+        </a>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="course-listing.html">Courses</a>
+            <a href="Blogs.html">Blogs</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="auth">
         </div>
-        <div class="course-body">
-          <p class="course-author">TS: Đặng Ngọc Hoàng Thành</p>
-          <h3 class="course-title">Trí Tuệ Nhân Tạo</h3>
-          <div class="course-meta">
-            <span> 2 Tháng</span>
-            <span>56 Học viên</span>
-          </div>
-        </div>
-      </a>
+    </header>
 
-      <div class="course-card">
-        <div class="course-img">
-          <img src="course2.png" alt="Course image">
-        </div>
-        <div class="course-body">
-          <p class="course-author">TS: Nguyễn Mạnh Tuấn</p>
-          <h3 class="course-title">LẬP TRÌNH HƯỚNG ĐỐI TƯỢNG</h3>
-          <div class="course-meta">
-            <span>2 Tháng</span>
-            <span>66 Học viên</span>
-          </div>
-        </div>
-      </div>
+    <main class="profile-container">
+        <aside class="profile-sidebar">
+            <ul>
+                <li><a href="information.html" class="active"><i class="fa-solid fa-user-pen"></i> Thông tin & liên hệ</a></li>
+                <li><a href="change-password.html"><i class="fa-solid fa-lock"></i> Đổi mật khẩu</a></li>
+            </ul>
+        </aside>
 
-      <div class="course-card">
-        <div class="course-img">
-          <img src="course3.png" alt="Course image">
-        </div>
-        <div class="course-body">
-          <p class="course-author">TS: Nguyễn An Tế</p>
-          <h3 class="course-title">Máy học</h3>
-          <div class="course-meta">
-            <span>2 Tháng</span>
-            <span>66 Sinh Viên</span>
-          </div>
-        </div>
-      </div>
+        <section class="profile-content">
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3>Thông tin</h3>
+                    <button id="updateInfoBtn" class="update-btn">Cập nhật</button>
+                </div>
+                <div class="card-body info-body">
+                    <div class="info-avatar">
+                        <img id="profileAvatar" src="default-avatar.png" alt="User Avatar">
+                        <label for="avatarUploadInput" class="avatar-edit-btn" title="Đổi ảnh đại diện">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" id="avatarUploadInput" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="info-details">
+                        <p><strong>Họ tên:</strong> <span id="displayName">Chưa cập nhật</span></p>
+                        <p><strong>Tên tài khoản:</strong> <span id="displayUsername">Chưa cập nhật</span></p>
+                        <p><strong>Email:</strong> <span id="displayEmail">Chưa cập nhật</span></p>
+                        <p><strong>Ngày sinh:</strong> <span id="displayDob">Chưa cập nhật</span></p>
+                        <p><strong>Số điện thoại:</strong> <span id="displayPhone">Chưa cập nhật</span></p>
+                    </div>
+                </div>
+            </div>
 
-      <div class="course-card">
-        <div class="course-img">
-          <img src="course4.png" alt="Course image">
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3>Mạng xã hội</h3>
+                    <button id="updateSocialBtn" class="update-btn">Cập nhật</button>
+                </div>
+                <div class="card-body social-body">
+                    <a id="socialFacebook" href="#" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a id="socialLinkedin" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a id="socialTwitter" href="#" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3>Kinh nghiệm</h3>
+                    <button id="updateExperienceBtn" class="update-btn">Cập nhật</button>
+                </div>
+                <div class="card-body">
+                    <p id="displayExperience" class="text-content">Chưa cập nhật</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3>Học vấn</h3>
+                    <button id="updateEducationBtn" class="update-btn">Cập nhật</button>
+                </div>
+                <div class="card-body">
+                    <p id="displayEducation" class="text-content">Chưa cập nhật</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3>Giới thiệu</h3>
+                    <button id="updateIntroBtn" class="update-btn">Cập nhật</button>
+                </div>
+                <div class="card-body">
+                    <p id="displayIntro" class="text-content">Chưa cập nhật</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 EduPress. All rights reserved.</p>
+    </footer>
+
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2>Cập nhật hồ sơ</h2>
+            <form id="infoForm">
+                <div class="form-group">
+                    <label for="inputName">Họ tên</label>
+                    <input type="text" id="inputName" placeholder="Nhập họ và tên">
+                </div>
+                <div class="form-group">
+                    <label for="inputDob">Ngày sinh</label>
+                    <input type="date" id="inputDob">
+                </div>
+                <div class="form-group">
+                    <label for="inputPhone">Số điện thoại</label>
+                    <input type="tel" id="inputPhone" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Cập nhật</button>
+                </div>
+            </form>
         </div>
-        <div class="course-body">
-          <p class="course-author">ThS: Hồ Thị Thanh Tuyến</p>
-          <h3 class="course-title">Cơ sở dữ liệu</h3>
-          <div class="course-meta">
-            <span>2 Tháng</span>
-            <span>66 Sinh Viên</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <section class="feedback">
-    <h2>Phản hồi của học viên</h2>
-    <p>Những gì học viên nói về hệ thống LMS của chúng tôi</p>
-
-    <div class="feedback-grid">
-      <div class="feedback-card">
-        <blockquote>
-          Giáo viên phản hồi nhanh, hệ thống chạy mượt, nộp bài cũng đơn giản. Mình đánh giá EduPress là nền tảng LMS thân thiện và hiệu quả nhất mình từng dùng.
-        </blockquote>
-        <h4>Ngọc Anh</h4>
-        <span>Sinh viên Marketing</span>
-      </div>
-
-      <div class="feedback-card">
-        <blockquote>
-          EduPress giúp mình quản lý khóa học siêu gọn. Trước hay quên deadline bài tập, giờ hệ thống tự nhắc luôn, đỡ stress hẳn.
-        </blockquote>
-        <h4>Minh Khang</h4>
-        <span>Sinh viên Công nghệ thông tin</span>
-      </div>
-
-      <div class="feedback-card">
-        <blockquote>
-          Giao diện của EduPress cực kỳ dễ dùng, học online mà cảm giác như đang ở lớp thật luôn. Mình thích nhất là phần quiz, vừa học vừa chơi mà vẫn nhớ bài lâu.
-        </blockquote>
-        <h4>Thảo My</h4>
-        <span>Học viên Thiết kế đồ họa</span>
-      </div>
-
-      <div class="feedback-card">
-        <blockquote>
-          Tính năng theo dõi tiến độ học rất tiện, mình biết rõ mình đang ở đâu trong khóa. Cảm giác học có động lực hơn hẳn.
-        </blockquote>
-        <h4>Quốc Huy</h4>
-        <span>Sinh viên Kinh doanh quốc tế</span>
-      </div>
+    <div id="socialModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2>Cập nhật mạng xã hội</h2>
+            <form id="socialForm">
+                <div class="form-group">
+                    <label for="inputFacebook">Facebook</label>
+                    <input type="url" id="inputFacebook" placeholder="https://facebook.com/your-profile">
+                </div>
+                <div class="form-group">
+                    <label for="inputLinkedin">LinkedIn</label>
+                    <input type="url" id="inputLinkedin" placeholder="https://linkedin.com/in/your-profile">
+                </div>
+                 <div class="form-group">
+                    <label for="inputTwitter">Twitter</label>
+                    <input type="url" id="inputTwitter" placeholder="https://twitter.com/your-profile">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </section>
+    <div id="textModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn">&times;</button>
+            <h2 id="textModalTitle">Cập nhật</h2>
+            <form id="textForm">
+                <div class="form-group">
+                    <textarea id="inputText" rows="8" placeholder="Nhập nội dung..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-  <footer class="footer">
-    <div class="footer-column">
-      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
-      <p>Điện thoại: 0123 456 789</p>
-      <p>Email: contact@edupress.com</p>
-      <div class="footer-social">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-      </div>
-    </div>
-    <div class="footer-column">
-      <ul>
-        <li>EduPress Tuyển Sinh</li>
-        <li>EduPress Future</li>
-        <li>EduPress Học Bổng</li>
-        <li>EduPress Đào Tạo</li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <ul>
-        <li>Về Chúng Tôi</li>
-        <li>Liên Hệ</li>
-        <li>Chính Sách Bảo Mật</li>
-        <li>Điều Khoản Dịch Vụ</li>
-      </ul>
-    </div>
-  </footer>
-<script src="auth.js"></script>
+    <script src="auth.js"></script>
+    <script src="information.js"></script>
 </body>
-
 </html>
