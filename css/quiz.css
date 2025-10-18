@@ -1,14 +1,26 @@
-body {
+/* Reset chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Layout chuẩn để footer luôn dính đáy === */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   background: #f8f9fa;
   text-align: center;
-  padding: 30px;
 }
 
+/* === Nội dung chính === */
 .quiz-container {
+  flex: 1; /* Đẩy footer xuống đáy */
   background: #fff;
   max-width: 500px;
-  margin: auto;
+  margin: 40px auto;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 20px;
@@ -23,6 +35,7 @@ button {
   background-color: #005f69;
   color: white;
   font-weight: bold;
+  transition: 0.3s ease;
 }
 
 button:hover {
@@ -57,4 +70,45 @@ td {
 h2 {
   margin-top: 40px;
   color: #005f69;
+}
+
+/* === Footer luôn dính cuối trang === */
+footer.footer {
+  width: 100%;
+  background-color: #005f69;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 20px 80px;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: auto; /* đẩy footer xuống đáy */
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.footer-column p,
+.footer-column li {
+  font-size: 14px;
+  color: #dcdcdc;
+  list-style: none;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.footer-column li:hover {
+  color: #F17034;
+}
+
+@media (max-width: 768px) {
+  footer.footer {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    text-align: center;
+  }
 }
