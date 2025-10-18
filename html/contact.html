@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - EduPress</title>
+  <link rel="stylesheet" href="../css/contact.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="../html/index.html" class="logo">
+      <img src="../pic/logo.png" alt="EduPress logo">
+    </a>
+    <nav class="menu">
+      <a href="../html/index.html">Trang chủ</a>
+      <a href="../html/course-listing.html">Khóa học</a>
+      <a href="../html/Blogs.html">Tin tức</a>
+      <a href="../html/contact.html" class="active">Liên hệ</a>
+    </nav>
+    <div class="auth">
+      <a href="../html/login.html">Đăng nhập</a>
+      <span>/</span>
+      <a href="../html/register.html">Đăng kí</a>
+  </header>
+
+  <section class="hero_contact">
+    <h1>Liên hệ với EduPress</h1>
+    <p>Chúng tôi luôn sẵn sàng hỗ trợ và lắng nghe phản hồi từ bạn</p>
+  </section>
+
+  <main class="contact-container">
+    <div class="contact-info">
+      <h2>Thông tin liên hệ</h2>
+      <p><strong>📍 Địa chỉ:</strong> 279 Nguyễn Tri Phương, Quận 10, TP.HCM</p>
+      <p><strong>📞 Điện thoại:</strong> (028) 1234 5678</p>
+      <p><strong>📧 Email:</strong> support@edupress.vn</p>
+      <p><strong>🕒 Giờ làm việc:</strong> Thứ 2 - Thứ 6 (8:00 - 17:00)</p>
+    </div>
+
+    <div class="contact-form">
+      <h2>Gửi tin nhắn cho chúng tôi</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Họ và tên">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="message" placeholder="Nội dung tin nhắn..." rows="5"></textarea>
+        <button type="submit">Gửi liên hệ</button>
+      </form>
+      <p id="successMsg" class="success-msg"></p>
+    </div>
+  </main>
+
+  <section class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.716797726253!2d106.66141187582217!3d10.756440159635303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1dc9a1f007%3A0x1a2d9d1b26c623f1!2zVHLGsOG7nW5nIMSQ4buRYyBDaMOhbmggxJDhu5NuZyBLaW5oIFRow6BuaCBQaOG7kSBI4buTIFRo4buNIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1696754864075!5m2!1svi!2s"
+      allowfullscreen="" loading="lazy">
+    </iframe>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-column">
+      <h3>59C Nguyễn Đình Chiểu, phường Xuân Hòa, Thành Phố Hồ Chí Minh</h3>
+      <p>Điện thoại: 0123 456 789</p>
+      <p>Email: contact@edupress.com</p>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>EduPress Tuyển Sinh</li>
+        <li>EduPress Future</li>
+        <li>EduPress Học Bổng</li>
+        <li>EduPress Đào Tạo</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <ul>
+        <li>Về Chúng Tôi</li>
+        <li>Liên Hệ</li>
+        <li>Chính Sách Bảo Mật</li>
+        <li>Điều Khoản Dịch Vụ</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !email || !message) {
+        alert("Vui lòng điền đầy đủ thông tin!");
+        return;
+      }
+      successMsg.textContent = "Cảm ơn bạn, tin nhắn đã được gửi thành công.";
+      contactForm.reset();
+    });
+  </script>
+  <script src="../js/auth.js"></script>
+
+</body>
+
+</html>

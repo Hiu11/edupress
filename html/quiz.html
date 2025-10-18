@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài kiểm tra nhanh</title>
+  <link rel="stylesheet" href="../css/quiz.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>BÀI KIỂM TRA NHANH</h1>
+    <p id="timer">Thời gian: --</p>
+
+    <div id="question-box" style="display:none;"></div>
+
+    <button id="start-btn">BẮT ĐẦU</button>
+    <button id="next-btn" style="display:none;">Câu tiếp</button>
+
+    <p id="result"></p>
+
+    <button id="back-btn" onclick="window.location.href='../html/course-detail.html'">⬅ Quay lại khóa học</button>
+
+
+    <h2>Lịch sử bài làm </h2>
+    <table id="history-table">
+      <thead>
+        <tr>
+          <th>Lần</th>
+          <th>Thời gian</th>
+          <th>Kết quả</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody id="history-body"></tbody>
+    </table>
+  </div>
+
+  <script src="../js/quiz.js"></script>
+</body>
+</html>
