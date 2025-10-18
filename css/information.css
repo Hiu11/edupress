@@ -42,10 +42,10 @@ body {
 }
 .profile-sidebar ul li a:hover {
     background-color: #f0f4ff;
-    color: #0056b3;
+    color: #F17034;
 }
 .profile-sidebar ul li a.active {
-    background-color: #007bff;
+    background-color: #F17034;
     color: white;
 }
 
@@ -77,7 +77,7 @@ body {
     color: #333;
 }
 .update-btn {
-    background-color: #007bff;
+    background-color: #005f69;
     color: white;
     border: none;
     padding: 8px 18px;
@@ -87,7 +87,7 @@ body {
     transition: background-color 0.2s;
 }
 .update-btn:hover {
-    background-color: #0056b3;
+    background-color: #F17034;
 }
 
 .info-body {
@@ -114,7 +114,7 @@ body {
     right: 5px;
     width: 32px;
     height: 32px;
-    background-color: #007bff;
+    background-color: #005f69;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -154,12 +154,12 @@ body {
     font-size: 28px;
 }
 .social-body a:hover {
-    color: #007bff;
+    color: #F17034;
 }
 
-#socialFacebook i { color: #1877F2; }
-#socialLinkedin i { color: #0A66C2; }
-#socialTwitter i { color: #1DA1F2; }
+#socialFacebook i { color: #005f69; }
+#socialLinkedin i { color: #005f69; }
+#socialTwitter i { color: #005f69; }
 
 
 .modal-overlay {
@@ -204,12 +204,12 @@ body {
     text-align: right; margin-top: 30px;
 }
 .btn-primary {
-    background-color: #007bff; color: white; border: none;
+    background-color: #005f69; color: white; border: none;
     padding: 12px 25px; border-radius: 6px;
     cursor: pointer; font-weight: bold;
 }
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #F17034;
 }
 
 .text-content {
