@@ -1,11 +1,9 @@
-/* Reset chung */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === Layout chuẩn để footer luôn dính đáy === */
 html, body {
   height: 100%;
   display: flex;
@@ -15,9 +13,8 @@ html, body {
   text-align: center;
 }
 
-/* === Nội dung chính === */
 .quiz-container {
-  flex: 1; /* Đẩy footer xuống đáy */
+  flex: 1; 
   background: #fff;
   max-width: 500px;
   margin: 40px auto;
@@ -72,7 +69,6 @@ h2 {
   color: #005f69;
 }
 
-/* === Footer luôn dính cuối trang === */
 footer.footer {
   width: 100%;
   background-color: #005f69;
@@ -83,7 +79,7 @@ footer.footer {
   padding: 20px 80px;
   line-height: 1.6;
   text-align: left;
-  margin-top: auto; /* đẩy footer xuống đáy */
+  margin-top: auto; 
 }
 
 .footer-column h3 {
