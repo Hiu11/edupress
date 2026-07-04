@@ -115,3 +115,51 @@ EduPress/
 ---
 
 *EduPress – Học mọi lúc, mọi nơi, dễ dàng và hiệu quả.*
+
+---
+
+## EduPress v2 Architecture
+
+This repository now includes a migration path from the original HTML/CSS/JavaScript LMS demo to a full-stack platform.
+
+### New stack
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | Vue 3, Vite |
+| Backend | FastAPI, Python |
+| Database | PostgreSQL |
+| ORM | SQLAlchemy |
+| API style | REST |
+
+### New folders
+
+```txt
+client/   Vue 3 application
+server/   FastAPI application
+html/     Legacy static pages
+css/      Legacy static styles
+js/       Legacy static scripts
+pic/      Shared image assets
+```
+
+### Run the Vue client
+
+```powershell
+cd client
+npm install
+npm run dev
+```
+
+### Run the FastAPI server
+
+```powershell
+cd server
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+Copy-Item .env.example .env
+uvicorn app.main:app --reload
+```
+
+Create a PostgreSQL database named `edupress` before starting the API, or edit `DATABASE_URL` in `server/.env`.
