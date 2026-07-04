@@ -1,157 +1,67 @@
-# EduPress – Nền tảng học trực tuyến (HTML / CSS / JS)
+# EduPress
 
-## Giới thiệu
-**EduPress** là website học trực tuyến mô phỏng hệ thống LMS (*Learning Management System*), được xây dựng hoàn toàn bằng **HTML, CSS và JavaScript thuần**.  
-Dự án giúp người dùng **đăng ký – đăng nhập – học khóa học – làm quiz – và quản lý hồ sơ cá nhân**.
-
----
+EduPress là nền tảng học trực tuyến mô phỏng hệ thống LMS (Learning Management System). Dự án hiện đã được nâng cấp từ bản HTML/CSS/JavaScript tĩnh sang kiến trúc full-stack với Vue 3 ở frontend và FastAPI ở backend.
 
 ## Tính năng chính
-### Người dùng
-- Đăng ký, đăng nhập, quên / đổi mật khẩu  
-- Cập nhật hồ sơ cá nhân, đổi avatar  
-- Xem tiến trình học tập  
 
-### Học tập
-- Danh sách khóa học có tìm kiếm realtime  
-- Trang chi tiết khóa học với video, mô tả, tài liệu  
-- Upload file, đăng ký xem khóa học  
-- Làm bài quiz có đếm thời gian, chấm điểm, lưu lịch sử  
-
-### Tin tức & Liên hệ
-- Trang tin tức với bài viết nổi bật  
-- Form gửi phản hồi, tích hợp bản đồ Google Maps  
-
----
+- Hiển thị trang giới thiệu nền tảng học trực tuyến EduPress.
+- Danh sách khóa học lấy từ API backend.
+- API kiểm tra trạng thái hệ thống.
+- Cấu trúc sẵn sàng mở rộng cho xác thực, quản lý khóa học, học viên và nội dung học tập.
+- Tách riêng frontend, backend và tài nguyên giao diện.
 
 ## Công nghệ sử dụng
-| Thành phần | Công nghệ |
-|-------------|------------|
-| Frontend | **HTML5**, **CSS3**, **JavaScript (ES6)** |
-| Lưu trữ dữ liệu | **LocalStorage (client-side)** |
-| UI | Flexbox, Grid, Modal overlay, Responsive layout |
-| Icon | [Font Awesome 6](https://fontawesome.com/) |
 
----
-
-## Cấu trúc thư mục
-```
-EduPress/
-├── html/
-│   ├── index.html
-│   ├── course-listing.html
-│   ├── course-detail.html
-│   ├── quiz.html
-│   ├── Blogs.html
-│   ├── contact.html
-│   ├── login.html
-│   ├── register.html
-│   ├── forgot-password.html
-│   ├── change-password.html
-│   ├── information.html
-│   └── profile.html
-│
-├── css/
-│   ├── index.css
-│   ├── course-listing.css
-│   ├── course-detail.css
-│   ├── quiz.css
-│   ├── Blogs.css
-│   ├── contact.css
-│   ├── auth.css
-│   ├── login.css
-│   ├── forgot-password.css
-│   ├── change-password.css
-│   ├── information.css
-│   └── profile.css
-│
-├── js/
-│   ├── auth.js
-│   ├── login.js
-│   ├── register.js
-│   ├── forgot-password.js
-│   ├── change-password.js
-│   ├── information.js
-│   ├── profile.js
-│   ├── course-listing.js
-│   ├── course-detail.js
-│   ├── quiz.js
-│   └── contact.js
-│
-└── pic/
-    ├── logo.png
-    ├── banner.png
-    └── (các ảnh minh họa khác)
-```
-
----
-
-## Thành viên nhóm
-
-| Thành viên | Vai trò | Phụ trách giao diện | Phụ trách chức năng |
-|-------------|----------|--------------------|---------------------|
-| **Phan Nguyên Khoa** | Frontend Dev | Đăng nhập, Đăng ký, Hồ sơ cá nhân, Thông tin người dùng, Quên/Đổi mật khẩu | - Xử lý logic đăng nhập/đăng ký<br>- Kiểm tra email trùng<br>- Cập nhật thông tin cá nhân<br>- Đổi mật khẩu, quên mật khẩu<br>- Lưu và cập nhật LocalStorage |
-| **Đỗ Trọng Hiếu** | Frontend Dev | Trang chủ, Danh sách khóa học, Chi tiết khóa học, Tin tức, Liên hệ, Quiz | - Tìm kiếm khóa học realtime<br>- Xem chi tiết khóa học, video<br>- Upload tài liệu, làm quiz<br>- Gửi phản hồi liên hệ<br>- Tích hợp Google Map<br>- Modal đăng ký xem khóa học |
-
----
-
-## Hướng dẫn chạy dự án
-
-### Cách 1 – Mở trực tiếp
-1. Giải nén folder EduPress  
-2. Mở `html/index.html` bằng trình duyệt  
-
-### Cách 2 – Dùng Live Server (VSCode)
-1. Cài extension **Live Server**  
-2. Chuột phải vào `index.html` → **Open with Live Server**
-
----
-
-## Hướng phát triển
-- Kết nối Firebase hoặc Node.js Backend  
-- Thêm tính năng cho giảng viên và quản trị viên  
-- Hệ thống chứng chỉ sau khi hoàn thành khóa học  
-
----
-
-*EduPress – Học mọi lúc, mọi nơi, dễ dàng và hiệu quả.*
-
----
-
-## EduPress v2 Architecture
-
-This repository now includes a migration path from the original HTML/CSS/JavaScript LMS demo to a full-stack platform.
-
-### New stack
-
-| Layer | Technology |
+| Phần | Công nghệ |
 | --- | --- |
-| Frontend | Vue 3, Vite |
+| Frontend | Vue 3, Vite, JavaScript, CSS |
 | Backend | FastAPI, Python |
 | Database | PostgreSQL |
 | ORM | SQLAlchemy |
-| API style | REST |
+| API | REST |
 
-### New folders
+## Cấu trúc thư mục
 
 ```txt
-client/   Vue 3 application
-server/   FastAPI application
-html/     Legacy static pages
-css/      Legacy static styles
-js/       Legacy static scripts
-pic/      Shared image assets
+EDUPRESS/
+├── client/                 # Ứng dụng Vue 3
+│   ├── public/             # Favicon, icon, ảnh public
+│   ├── src/                # Source code frontend
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/                 # Ứng dụng FastAPI
+│   ├── app/
+│   │   ├── api/            # Router API
+│   │   ├── core/           # Cấu hình ứng dụng
+│   │   ├── db/             # Kết nối và khởi tạo database
+│   │   ├── models/         # SQLAlchemy models
+│   │   └── schemas/        # Pydantic schemas
+│   ├── .env.example
+│   ├── requirements.txt
+│   └── README.md
+│
+└── README.md
 ```
 
-### Run the Vue client
+## Yêu cầu môi trường
+
+- Node.js
+- npm
+- Python 3.10 trở lên
+- PostgreSQL
+
+## Cài đặt và chạy dự án
+
+### 1. Clone hoặc mở thư mục dự án
 
 ```powershell
-cd client
-npm install
-npm run dev
+cd EDUPRESS
 ```
 
-### Run the FastAPI server
+### 2. Chạy backend
+
+Tạo database PostgreSQL tên `edupress`, sau đó chạy:
 
 ```powershell
 cd server
@@ -162,4 +72,65 @@ Copy-Item .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Create a PostgreSQL database named `edupress` before starting the API, or edit `DATABASE_URL` in `server/.env`.
+Backend mặc định chạy tại:
+
+```txt
+http://localhost:8000
+```
+
+### 3. Chạy frontend
+
+Mở terminal khác:
+
+```powershell
+cd client
+npm install
+npm run dev
+```
+
+Frontend mặc định chạy tại:
+
+```txt
+http://localhost:5173
+```
+
+## Biến môi trường backend
+
+File cấu hình mẫu nằm tại `server/.env.example`.
+
+```env
+APP_NAME=EduPress API
+APP_ENV=development
+CLIENT_ORIGIN=http://localhost:5173
+DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/edupress
+JWT_SECRET=change-me-in-production
+JWT_EXPIRES_MINUTES=1440
+```
+
+Nếu tài khoản PostgreSQL của bạn khác `postgres/postgres`, hãy sửa lại `DATABASE_URL` trong `server/.env`.
+
+## API hiện có
+
+| Method | Endpoint | Mô tả |
+| --- | --- | --- |
+| GET | `/health` | Kiểm tra trạng thái API |
+| GET | `/api/courses` | Lấy danh sách khóa học |
+
+## Build frontend
+
+```powershell
+cd client
+npm run build
+```
+
+## Tác giả
+
+Đây là dự án cá nhân, được thực hiện nhằm xây dựng và nâng cấp nền tảng học trực tuyến EduPress từ giao diện tĩnh sang mô hình full-stack.
+
+## Hướng phát triển
+
+- Hoàn thiện chức năng đăng ký, đăng nhập và phân quyền.
+- Thêm trang chi tiết khóa học, bài học, quiz và tiến trình học tập.
+- Xây dựng chức năng quản trị khóa học.
+- Bổ sung seed data và migration database.
+- Triển khai frontend và backend lên môi trường production.
