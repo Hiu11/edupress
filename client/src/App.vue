@@ -1,5 +1,6 @@
-﻿<script setup>
+<script setup>
 import { computed, onMounted, ref } from 'vue'
+import LearningUniverse from './components/LearningUniverse.vue'
 
 const ASSET_BASE = '/legacy-assets/'
 const GENERATED_BASE = '/generated-assets/'
@@ -91,6 +92,78 @@ const courses = [
     syllabus: ['Design principles', 'Wireframe và user flow', 'Responsive UI', 'Design system', 'Prototype review'],
     resources: ['Figma template', 'Color token guide', 'Accessibility checklist'],
   },
+  {
+    id: 'cloud',
+    title: 'Kiến trúc Cloud & DevOps',
+    author: 'ThS. Phan Hữu Vinh',
+    category: 'Software Engineering',
+    image: 'course-cloud-bg.png',
+    level: 'Advanced',
+    lessons: 16,
+    duration: '8 tuần',
+    rating: 4.9,
+    students: 312,
+    progress: 20,
+    tag: 'Mới',
+    description: 'Triển khai hệ thống mượt mà với Docker, CI/CD, AWS và tối ưu hóa tài nguyên server.',
+    outcomes: ['Viết Dockerfile và docker-compose', 'Cấu hình GitHub Actions CI/CD', 'Quản lý tài nguyên AWS cơ bản'],
+    syllabus: ['Docker cơ bản', 'Container orchestration', 'CI/CD Pipelines', 'AWS EC2 & S3', 'System Monitoring'],
+    resources: ['AWS Free Tier Guide', 'Docker cheatsheet', 'Workflow templates'],
+  },
+  {
+    id: 'mobile',
+    title: 'Lập trình Mobile Đa nền tảng',
+    author: 'TS. Trần Công Nam',
+    category: 'Mobile Dev',
+    image: 'course-mobile-bg.png',
+    level: 'Intermediate',
+    lessons: 20,
+    duration: '9 tuần',
+    rating: 4.8,
+    students: 540,
+    progress: 60,
+    tag: 'Xu hướng',
+    description: 'Tạo ứng dụng chạy cả trên iOS và Android với Flutter và Dart từ con số 0.',
+    outcomes: ['Thiết kế giao diện bằng Widget', 'Quản lý state phức tạp', 'Kết nối Firebase realtime'],
+    syllabus: ['Dart basics', 'Flutter layout', 'State management (Provider/Bloc)', 'Firebase integration', 'App Store deployment'],
+    resources: ['Flutter UI kit', 'Dart cheatsheet', 'Asset pack'],
+  },
+  {
+    id: 'data',
+    title: 'Phân tích dữ liệu với Python',
+    author: 'TS. Lê Đức Hùng',
+    category: 'Data Science',
+    image: 'course-data-bg.png',
+    level: 'Beginner',
+    lessons: 15,
+    duration: '7 tuần',
+    rating: 4.7,
+    students: 420,
+    progress: 10,
+    tag: 'Được săn đón',
+    description: 'Trích xuất insight từ dữ liệu lớn bằng Pandas, Numpy và vẽ biểu đồ trực quan.',
+    outcomes: ['Làm sạch dữ liệu thô', 'Sử dụng Pandas thành thạo', 'Vẽ dashboard với Plotly'],
+    syllabus: ['Python for Data', 'Pandas & Numpy', 'Data Cleaning', 'Data Visualization', 'Capstone Project'],
+    resources: ['Kaggle Datasets', 'Jupyter notebooks', 'Cheat sheets'],
+  },
+  {
+    id: 'security',
+    title: 'Bảo mật ứng dụng Web',
+    author: 'ThS. Nguyễn Văn Toàn',
+    category: 'Cyber Security',
+    image: 'course-sec-bg.png',
+    level: 'Advanced',
+    lessons: 14,
+    duration: '6 tuần',
+    rating: 4.9,
+    students: 198,
+    progress: 5,
+    tag: 'Đặc thù',
+    description: 'Tấn công và phòng thủ các lỗi phổ biến (XSS, SQLi, CSRF) để bảo vệ hệ thống.',
+    outcomes: ['Tìm và khai thác lỗ hổng web', 'Vá lỗi bảo mật', 'Triển khai xác thực an toàn'],
+    syllabus: ['OWASP Top 10', 'Injection attacks', 'XSS & CSRF', 'Authentication flaws', 'Penetration testing cơ bản'],
+    resources: ['Vulnerable VM', 'Báo cáo mẫu', 'Security checklist'],
+  }
 ]
 
 const posts = [
@@ -321,16 +394,24 @@ function sendContact() {
   setNotice('EduPress đã nhận phản hồi của bạn.')
 }
 
-onMounted(async () => {
+function handleHashChange() {
   const hash = window.location.hash.replace('#', '')
   if (hash) {
     const [nextRoute, courseId] = hash.split('/')
     route.value = nextRoute
     if (courseId) selectedCourseId.value = courseId
+  } else {
+    route.value = 'home'
   }
+}
+
+onMounted(async () => {
+  handleHashChange()
+  window.addEventListener('hashchange', handleHashChange)
+  
   syncProfileForm()
   try {
-    const response = await fetch('http://localhost:8000/health')
+    const response = await fetch('http://localhost:8001/health')
     apiStatus.value = response.ok ? 'online' : 'offline'
   } catch {
     apiStatus.value = 'offline'
@@ -446,7 +527,7 @@ onMounted(async () => {
           </ol>
         </section>
 
-        <section class="content-section testimonial-section">
+        <section class="content-section section-band testimonial-section">
           <article v-for="item in testimonials" :key="item.name" class="testimonial-card">
             <p>“{{ item.quote }}”</p>
             <strong>{{ item.name }}</strong>
@@ -464,6 +545,8 @@ onMounted(async () => {
           </div>
           <input v-model="search" type="search" placeholder="Tìm AI, Web, OOP..." />
         </div>
+        
+        <LearningUniverse :courses="filteredCourses" @selectCourse="navigate('course-detail', $event)" />
 
         <div class="course-list">
           <article v-for="course in filteredCourses" :key="course.id" class="course-row-card">
@@ -486,7 +569,7 @@ onMounted(async () => {
         <div class="detail-hero">
           <img :src="courseImage(selectedCourse)" :alt="selectedCourse.title" />
           <div>
-            <button class="text-btn" type="button" @click="navigate('courses')">Quay về danh sách</button>
+            <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('courses')">← Quay lại danh sách</button>
             <p class="eyebrow">{{ selectedCourse.category }} · {{ selectedCourse.level }}</p>
             <h1>{{ selectedCourse.title }}</h1>
             <p>{{ selectedCourse.description }}</p>
@@ -520,6 +603,7 @@ onMounted(async () => {
 
       <section v-if="route === 'quiz'" class="content-section page-section quiz-layout">
         <div class="quiz-intro">
+          <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('course-detail', selectedCourseId)">← Quay lại khóa học</button>
           <p class="eyebrow">Interactive quiz</p>
           <h1>Kiểm tra kiến thức sau mỗi module</h1>
           <p>Quiz được thiết kế ngắn, rõ, có lưu lịch sử để học viên tự theo dõi tiến bộ.</p>
@@ -540,6 +624,7 @@ onMounted(async () => {
       </section>
 
       <section v-if="route === 'blog'" class="content-section page-section">
+        <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('home')">← Về trang chủ</button>
         <div class="blog-hero">
           <img :src="asset('blog-banner.jpg')" alt="EduPress blog" />
           <div><p class="eyebrow">EduPress Blog</p><h1>Tin tức giáo dục và công nghệ</h1><p>Nhiều hình ảnh hơn bản trước, giữ lại chất tin tức của EduPress cũ nhưng trình bày gọn và hiện đại hơn.</p></div>
@@ -554,6 +639,7 @@ onMounted(async () => {
 
       <section v-if="route === 'contact'" class="content-section page-section contact-layout">
         <div class="contact-copy">
+          <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('home')">← Về trang chủ</button>
           <p class="eyebrow">Contact</p>
           <h1>Liên hệ với EduPress</h1>
           <p>Đội ngũ EduPress hỗ trợ tư vấn khóa học, hợp tác giảng dạy và triển khai lớp học online.</p>
@@ -568,7 +654,10 @@ onMounted(async () => {
       </section>
 
       <section v-if="route === 'auth'" class="content-section page-section auth-layout">
-        <div class="auth-art"><p class="eyebrow">Account</p><h1>{{ authMode === 'login' ? 'Chào mừng quay lại' : 'Tạo tài khoản học tập' }}</h1><p>Đăng nhập để lưu khóa học, lịch sử quiz và tiến trình hoàn thành.</p></div>
+        <div class="auth-art">
+          <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('home')">← Về trang chủ</button>
+          <p class="eyebrow">Account</p><h1>{{ authMode === 'login' ? 'Chào mừng quay lại' : 'Tạo tài khoản học tập' }}</h1><p>Đăng nhập để lưu khóa học, lịch sử quiz và tiến trình hoàn thành.</p>
+        </div>
         <form v-if="authMode === 'login'" class="form-card" @submit.prevent="login">
           <input v-model="loginForm.email" type="email" placeholder="Email" />
           <input v-model="loginForm.password" type="password" placeholder="Mật khẩu" />
@@ -587,6 +676,7 @@ onMounted(async () => {
 
       <section v-if="route === 'profile'" class="content-section page-section profile-page">
         <div class="profile-summary">
+          <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('home')">← Về trang chủ</button>
           <p class="eyebrow">Learner profile</p>
           <h1>{{ currentUser?.name || 'Bạn chưa đăng nhập' }}</h1>
           <p>{{ currentUser?.email || 'Đăng nhập để lưu khóa học và tiến trình.' }}</p>
@@ -603,31 +693,33 @@ onMounted(async () => {
     </main>
 
     <footer class="site-footer">
-      <div class="footer-brand">
-        <img :src="generatedAsset('edupress-logo.png')" alt="EduPress" />
-        <div>
-          <strong>EduPress</strong>
-          <p>Nền tảng học trực tuyến với khóa học, quiz, tiến trình và tài nguyên học tập.</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img :src="generatedAsset('edupress-logo.png')" alt="EduPress" />
+          <div>
+            <strong>EduPress</strong>
+            <p>Nền tảng học trực tuyến với khóa học, quiz, tiến trình và tài nguyên học tập.</p>
+          </div>
         </div>
-      </div>
-      <div class="footer-columns">
-        <div>
-          <h3>Nền tảng</h3>
-          <button type="button" @click="navigate('courses')">Khóa học</button>
-          <button type="button" @click="navigate('quiz')">Quiz</button>
-          <button type="button" @click="navigate('profile')">Hồ sơ</button>
-        </div>
-        <div>
-          <h3>Nội dung</h3>
-          <button type="button" @click="navigate('blog')">Tin tức</button>
-          <button type="button" @click="navigate('contact')">Liên hệ</button>
-          <button type="button" @click="navigate('course-detail', featuredCourse.id)">Khóa nổi bật</button>
-        </div>
-        <div>
-          <h3>Liên hệ</h3>
-          <span>support@edupress.vn</span>
-          <span>0900 123 456</span>
-          <span>MindX Technology School</span>
+        <div class="footer-columns">
+          <div>
+            <h3>Nền tảng</h3>
+            <button type="button" @click="navigate('courses')">Khóa học</button>
+            <button type="button" @click="navigate('quiz')">Quiz</button>
+            <button type="button" @click="navigate('profile')">Hồ sơ</button>
+          </div>
+          <div>
+            <h3>Nội dung</h3>
+            <button type="button" @click="navigate('blog')">Tin tức</button>
+            <button type="button" @click="navigate('contact')">Liên hệ</button>
+            <button type="button" @click="navigate('course-detail', featuredCourse.id)">Khóa nổi bật</button>
+          </div>
+          <div>
+            <h3>Liên hệ</h3>
+            <span>support@edupress.vn</span>
+            <span>0900 123 456</span>
+            <span>MindX Technology School</span>
+          </div>
         </div>
       </div>
     </footer>
