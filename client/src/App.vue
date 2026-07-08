@@ -424,7 +424,7 @@ onMounted(async () => {
     <header class="site-header">
       <button class="brand" type="button" @click="navigate('home')">
         <img :src="generatedAsset('edupress-logo.png')" alt="EduPress" />
-        <span>EduPress</span>
+        <span class="logo-text">EDUPRESS</span>
       </button>
 
       <nav class="nav-links" aria-label="Primary">
@@ -675,20 +675,94 @@ onMounted(async () => {
       </section>
 
       <section v-if="route === 'profile'" class="content-section page-section profile-page">
-        <div class="profile-summary">
-          <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0;" type="button" @click="navigate('home')">← Về trang chủ</button>
+        <button class="text-btn" style="display: block; margin-bottom: 32px; padding-left: 0; align-self: flex-start; text-align: left; margin-right: auto;" type="button" @click="navigate('home')">← Về trang chủ</button>
+
+        <div v-if="!currentUser" class="profile-summary">
           <p class="eyebrow">Learner profile</p>
-          <h1>{{ currentUser?.name || 'Bạn chưa đăng nhập' }}</h1>
-          <p>{{ currentUser?.email || 'Đăng nhập để lưu khóa học và tiến trình.' }}</p>
-          <button v-if="!currentUser" class="primary-btn" type="button" @click="navigate('auth')">Đăng nhập</button>
-          <div v-else class="stats-list"><span>{{ enrolledIds.length }} khóa đã đăng ký</span><span>{{ completedIds.length }} khóa hoàn thành</span></div>
+          <h1>Bạn chưa đăng nhập</h1>
+          <p>Đăng nhập để xem Dashboard học tập và quản lý lộ trình của bạn.</p>
+          <button class="primary-btn" type="button" @click="navigate('auth')">Đăng nhập ngay</button>
         </div>
 
-        <div v-if="currentUser" class="profile-grid">
-          <form class="form-card" @submit.prevent="updateProfile"><h2>Thông tin tài khoản</h2><input v-model="profileForm.name" placeholder="Họ tên" /><input v-model="profileForm.phone" placeholder="Số điện thoại" /><input v-model="profileForm.school" placeholder="Trường / đơn vị" /><textarea v-model="profileForm.bio" placeholder="Giới thiệu ngắn"></textarea><button class="primary-btn" type="submit">Lưu hồ sơ</button></form>
-          <form class="form-card" @submit.prevent="changePassword"><h2>Đổi mật khẩu</h2><input v-model="passwordForm.current" type="password" placeholder="Mật khẩu hiện tại" /><input v-model="passwordForm.next" type="password" placeholder="Mật khẩu mới" /><input v-model="passwordForm.confirm" type="password" placeholder="Nhập lại mật khẩu mới" /><button class="primary-btn" type="submit">Đổi mật khẩu</button></form>
+        <div v-else class="bento-dashboard">
+          <!-- 1. Welcome & Stats (Span 2) -->
+          <div class="bento-item bento-welcome rich-panel">
+            <p class="eyebrow">Dashboard</p>
+            <h2>Chào {{ currentUser.name }},</h2>
+            <p class="text-muted">Tiếp tục hành trình học tập của bạn cùng EduPress hôm nay nhé!</p>
+            <div class="bento-stats-row">
+              <div class="stat-box">
+                <div class="stat-header"><span>Khóa đang học</span><span>{{ enrolledIds.length > 0 ? '65%' : '0%' }}</span></div>
+                <div class="animated-progress"><div class="animated-progress-fill" :style="`width: ${enrolledIds.length > 0 ? 65 : 0}%`"></div></div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-header"><span>Tiến độ hoàn thành</span><span>{{ completedIds.length > 0 ? '100%' : '20%' }}</span></div>
+                <div class="animated-progress"><div class="animated-progress-fill" :style="`width: ${completedIds.length > 0 ? 100 : 20}%`"></div></div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-header"><span>Điểm tích lũy</span><span>45%</span></div>
+                <div class="animated-progress"><div class="animated-progress-fill" style="width: 45%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Continue Learning (Span 2) -->
+          <div class="bento-item bento-continue rich-panel">
+            <p class="eyebrow">Tiến trình</p>
+            <h2>Đang học gần đây</h2>
+            <div v-if="enrolledIds.length > 0" class="current-course-widget">
+              <div class="widget-info">
+                <strong>{{ courses.find(c => c.id === enrolledIds[enrolledIds.length - 1])?.title || 'Khóa học' }}</strong>
+                <span>Tiến độ: 45%</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+              <button class="primary-btn small-btn" type="button" @click="navigate('course-detail', enrolledIds[enrolledIds.length - 1])">Tiếp tục học</button>
+            </div>
+            <div v-else class="empty-state">
+              <p>Bạn chưa đăng ký khóa học nào.</p>
+              <button class="secondary-btn" type="button" @click="navigate('courses')">Khám phá lộ trình</button>
+            </div>
+          </div>
+
+          <!-- 3. Profile Info (Span 2) -->
+          <form class="bento-item bento-profile form-card" @submit.prevent="updateProfile">
+            <p class="eyebrow">Cài đặt</p>
+            <h2>Hồ sơ cá nhân</h2>
+            <input v-model="profileForm.name" placeholder="Họ tên" />
+            <input v-model="profileForm.phone" placeholder="Số điện thoại" />
+            <input v-model="profileForm.school" placeholder="Trường / đơn vị công tác" />
+            <textarea v-model="profileForm.bio" placeholder="Mục tiêu học tập của bạn..."></textarea>
+            <button class="primary-btn" type="submit">Lưu thay đổi</button>
+          </form>
+
+          <!-- 4. Security (Span 2) -->
+          <form class="bento-item bento-security form-card" @submit.prevent="changePassword">
+            <p class="eyebrow">Bảo mật</p>
+            <h2>Đổi mật khẩu</h2>
+            <input v-model="passwordForm.current" type="password" placeholder="Mật khẩu hiện tại" />
+            <input v-model="passwordForm.next" type="password" placeholder="Mật khẩu mới" />
+            <input v-model="passwordForm.confirm" type="password" placeholder="Nhập lại mật khẩu mới" />
+            <button class="secondary-btn" type="submit">Cập nhật mật khẩu</button>
+          </form>
+
+          <!-- 5. All Enrolled Courses (Span 4) -->
+          <div class="bento-item bento-courses rich-panel">
+            <p class="eyebrow">Thư viện của bạn</p>
+            <h2>Khóa học đã đăng ký</h2>
+            <div class="bento-course-grid" v-if="enrolledIds.length > 0">
+              <article v-for="course in courses.filter(c => enrolledIds.includes(c.id))" :key="course.id" class="mini-course-card">
+                <img :src="courseImage(course)" :alt="course.title" />
+                <div class="mini-course-info">
+                  <strong>{{ course.title }}</strong>
+                  <span :class="['status-badge', completedIds.includes(course.id) ? 'done' : 'learning']">
+                    {{ completedIds.includes(course.id) ? '✓ Hoàn thành' : '▶ Đang học' }}
+                  </span>
+                </div>
+              </article>
+            </div>
+            <p v-else class="text-muted">Chưa có dữ liệu.</p>
+          </div>
         </div>
-        <div v-if="currentUser" class="panel rich-panel"><h2>Khóa học của tôi</h2><div class="mini-course-list"><article v-for="course in courses.filter((item) => enrolledIds.includes(item.id))" :key="course.id"><img :src="courseImage(course)" :alt="course.title" /><div><strong>{{ course.title }}</strong><span>{{ completedIds.includes(course.id) ? 'Hoàn thành' : 'Đang học' }}</span></div></article></div></div>
       </section>
     </main>
 
@@ -697,7 +771,7 @@ onMounted(async () => {
         <div class="footer-brand">
           <img :src="generatedAsset('edupress-logo.png')" alt="EduPress" />
           <div>
-            <strong>EduPress</strong>
+            <strong class="logo-text">EDUPRESS</strong>
             <p>Nền tảng học trực tuyến với khóa học, quiz, tiến trình và tài nguyên học tập.</p>
           </div>
         </div>
