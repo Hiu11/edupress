@@ -1759,8 +1759,6 @@ form input:focus, form textarea:focus {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.1) transparent;
 }
 
 .transcript-body::-webkit-scrollbar {
