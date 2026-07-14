@@ -811,6 +811,7 @@ button {
 .course-meta-row span {
   background: rgba(15, 23, 42, 0.04) !important;
   border: 1px solid rgba(0,0,0,0.06) !important;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
@@ -1468,8 +1469,8 @@ form input:focus, form textarea:focus {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -1589,6 +1590,7 @@ form input:focus, form textarea:focus {
   width: 80px; height: 80px;
   border-radius: 50%;
   background: rgba(220,38,38,0.9);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.8rem;
@@ -1759,6 +1761,17 @@ form input:focus, form textarea:focus {
   gap: 4px;
   scrollbar-width: thin;
   scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.transcript-body::-webkit-scrollbar {
+  width: 6px;
+}
+.transcript-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.transcript-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 10px;
 }
 
 .transcript-line {
