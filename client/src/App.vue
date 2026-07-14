@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import LearningUniverse from './components/LearningUniverse.vue'
+import CinematicPlayer from './components/CinematicPlayer.vue'
 
 const ASSET_BASE = '/legacy-assets/'
 const GENERATED_BASE = '/generated-assets/'
@@ -237,6 +238,7 @@ const quizScore = ref(0)
 const selectedAnswer = ref('')
 const quizFinished = ref(false)
 const notice = ref('')
+const showPlayer = ref(false)
 
 const users = computed(() => JSON.parse(localStorage.getItem('users') || '[]'))
 const currentUser = computed(() => users.value.find((user) => user.email === currentUserEmail.value))
@@ -442,6 +444,9 @@ onMounted(async () => {
 
     <p v-if="notice" class="toast">{{ notice }}</p>
 
+    <!-- Cinematic Player Overlay -->
+    <CinematicPlayer v-if="showPlayer" :course="selectedCourse" @close="showPlayer = false" />
+
     <main>
       <template v-if="route === 'home'">
         <section class="hero-section">
@@ -575,8 +580,9 @@ onMounted(async () => {
             <p>{{ selectedCourse.description }}</p>
             <div class="detail-meta"><span>{{ selectedCourse.author }}</span><span>{{ selectedCourse.duration }}</span><span>{{ selectedCourse.rating }}/5</span><span>{{ selectedCourse.students }} học viên</span></div>
             <div class="card-actions">
-              <button class="primary-btn" type="button" @click="enroll(selectedCourse.id)">Đăng ký học</button>
-              <button class="secondary-btn" type="button" @click="markCompleted(selectedCourse.id)">Đánh dấu hoàn thành</button>
+              <button class="primary-btn cinema-launch-btn" type="button" @click="showPlayer = true">🎬 Xem bài học</button>
+              <button class="secondary-btn" type="button" @click="enroll(selectedCourse.id)">Đăng ký học</button>
+              <button class="secondary-btn" type="button" @click="markCompleted(selectedCourse.id)">Hoàn thành</button>
               <button class="secondary-btn" type="button" @click="navigate('quiz')">Làm quiz</button>
             </div>
           </div>
