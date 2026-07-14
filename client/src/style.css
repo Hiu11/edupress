@@ -1298,6 +1298,7 @@ form input:focus, form textarea:focus {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: auto;
@@ -1426,13 +1427,7 @@ form input:focus, form textarea:focus {
   margin-bottom: 24px; /* Ensure it doesn't push too hard if we use flex gap */
 }
 
-.course-row-card {
-  /* gap handled in main block now */
-}
 
-.course-row-content {
-  /* gap removed as handled by margin-bottom */
-}
 
 /* Ensure course body in grid also has spacing */
 .course-body {
