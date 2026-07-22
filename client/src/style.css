@@ -1,5 +1,5 @@
 :root {
-  /* ProMax Light Theme Tokens - Red */
+  /* EduPress light theme tokens */
   --bg-base: #f8fafc;
   --bg-surface: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.85);
@@ -126,31 +126,26 @@ button {
   background: transparent;
   color: var(--text-main);
   font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: 0;
+  text-transform: none;
   text-shadow: none;
 }
 
 .brand img {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
 }
 
 .logo-text {
   font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.6rem;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #dc2626, #ea580c, #f59e0b, #dc2626);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradientMove 8s linear infinite;
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-main);
   display: inline-block;
 }
 
